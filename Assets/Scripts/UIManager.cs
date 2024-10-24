@@ -24,4 +24,10 @@ public class UIManager : MonoBehaviour
             OnBackButtonClicked(); 
         }
     }
+
+    public void AppExit()
+    {
+        Application.Quit();
+    }
+
 }
