@@ -1618,7 +1618,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 348457454256383695}
   - {fileID: 6904605160023431251}
@@ -2750,7 +2750,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913352304835050573}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.004550554, y: 0.1561254, z: -0.04076996, w: 0.986885}
+  m_LocalRotation: {x: 0.0041695135, y: -0.41314417, z: 0.10788683, w: 0.90424275}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2796,6 +2796,13 @@ MonoBehaviour:
     GateFit: 2
     FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
+    Iso: 200
+    ShutterSpeed: 0.005
+    Aperture: 16
+    BladeCount: 5
+    Curvature: {x: 2, y: 11}
+    BarrelClipping: 0.25
+    Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5680,7 +5687,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.0000000380473, y: -0.000000082361424, z: 0.000000005144245,
     w: 1}
-  m_LocalPosition: {x: -3.769799e-14, y: 0.00000011920929, z: 7.071068}
+  m_LocalPosition: {x: 0.0000026226044, y: 0, z: 7.071067}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9325,7 +9332,7 @@ Transform:
   m_GameObject: {fileID: 3371459273256266009}
   serializedVersion: 2
   m_LocalRotation: {x: 0.07088903, y: 2.683226e-15, z: -1.5270707e-16, w: 0.9974842}
-  m_LocalPosition: {x: 0, y: 2.151, z: -7}
+  m_LocalPosition: {x: -0.0000026226044, y: 2.151001, z: -6.999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9364,6 +9371,13 @@ MonoBehaviour:
     GateFit: 2
     FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
+    Iso: 200
+    ShutterSpeed: 0.005
+    Aperture: 16
+    BladeCount: 5
+    Curvature: {x: 2, y: 11}
+    BarrelClipping: 0.25
+    Anamorphism: 0
   m_Transitions:
     m_BlendHint: 2
     m_InheritPosition: 1
@@ -9460,7 +9474,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3410436613763710079}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.02250074, y: 0.15535797, z: -0.04360306, w: 0.986639}
+  m_LocalRotation: {x: 0.020616548, y: -0.4111134, z: 0.11538387, w: 0.9040173}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9506,6 +9520,13 @@ MonoBehaviour:
     GateFit: 2
     FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
+    Iso: 200
+    ShutterSpeed: 0.005
+    Aperture: 16
+    BladeCount: 5
+    Curvature: {x: 2, y: 11}
+    BarrelClipping: 0.25
+    Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -12165,7 +12186,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4302274290010120256}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.01335373, y: 0.15683933, z: -0.03793091, w: 0.9868052}
+  m_LocalRotation: {x: -0.012235444, y: -0.4150334, z: 0.10037404, w: 0.9041696}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12211,6 +12232,13 @@ MonoBehaviour:
     GateFit: 2
     FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
+    Iso: 200
+    ShutterSpeed: 0.005
+    Aperture: 16
+    BladeCount: 5
+    Curvature: {x: 2, y: 11}
+    BarrelClipping: 0.25
+    Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -18890,7 +18918,7 @@ Transform:
   m_GameObject: {fileID: 7153046689318826539}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1250747, y: -0.010678505, z: 0.001346261, w: 0.992089}
-  m_LocalPosition: {x: -0.8897208, y: 1.7118354, z: -2.8498344}
+  m_LocalPosition: {x: 2.3457794, y: 1.7118359, z: -1.846754}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18931,6 +18959,13 @@ MonoBehaviour:
     GateFit: 2
     FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
+    Iso: 200
+    ShutterSpeed: 0.005
+    Aperture: 16
+    BladeCount: 5
+    Curvature: {x: 2, y: 11}
+    BarrelClipping: 0.25
+    Anamorphism: 0
   m_Transitions:
     m_BlendHint: 2
     m_InheritPosition: 1
