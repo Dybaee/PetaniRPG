@@ -1074,9 +1074,10 @@ GameObject:
   - component: {fileID: 493995450}
   - component: {fileID: 493995449}
   - component: {fileID: 493995448}
+  - component: {fileID: 493995451}
   m_Layer: 0
   m_Name: 1
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1167,6 +1168,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493995446}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &493995451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493995446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d02df2bac2546174cb6629e2fd5fe635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPoint: {x: 0, y: 0, z: 0}
+  CheckpointTag: Checkpoint
 --- !u!1001 &510234661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3849,6 +3864,7 @@ GameObject:
   - component: {fileID: 881945325}
   - component: {fileID: 881945324}
   - component: {fileID: 881945323}
+  - component: {fileID: 881945326}
   m_Layer: 5
   m_Name: TextBg Quit Game
   m_TagString: Untagged
@@ -3970,6 +3986,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881945321}
   m_CullTransparentMesh: 1
+--- !u!95 &881945326
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881945321}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1057f2014f8d6b74e989ff7413cd6ef3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &887680764
 GameObject:
   m_ObjectHideFlags: 0
@@ -5887,6 +5924,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerRig
+      objectReference: {fileID: 0}
+    - target: {fileID: 427524086545729535, guid: 01a1c547c2955cc4c8aa8998dd4cdb4d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2033071078196165449, guid: 01a1c547c2955cc4c8aa8998dd4cdb4d,
         type: 3}
