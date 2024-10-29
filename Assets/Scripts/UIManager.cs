@@ -10,6 +10,11 @@ public class UIManager : MonoBehaviour
     public GameObject settingObj2;
     public GameObject backTO;
 
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
+
     public void OnBackButtonClicked()
     {
         settingObj1.SetActive(false);

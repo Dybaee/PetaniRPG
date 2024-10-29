@@ -48,4 +48,9 @@ public class PlayerStateMachine : StateMachine
     {
         SwitchState(new PlayerDeadState(this));
     }
+
+    public void SetPlayerPosition(Vector3 position)
+    {
+        transform.position = position;
+    }
 }
