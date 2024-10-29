@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStateMachine : StateMachine
+public class PlayerStateMachine : StateMachine, IDataPersistence
 {
     [field: SerializeField] public InputReader InputReader { get; private set; }
     [field: SerializeField] public CharacterController CharController { get; private set; }
@@ -49,8 +49,27 @@ public class PlayerStateMachine : StateMachine
         SwitchState(new PlayerDeadState(this));
     }
 
-    public void SetPlayerPosition(Vector3 position)
+    public void LoadData(GameData data)
     {
-        transform.position = position;
+        if (data != null)
+        {
+            StartCoroutine(PlacePlayerAfterSceneLoad(data.playerPosition));
+        }
+    }
+
+    private IEnumerator PlacePlayerAfterSceneLoad(Vector3 savedPosition)
+    {
+        // Dikasih delay gegara terlalu cepet load scene
+        yield return new WaitForSeconds(0.3f);
+
+        this.transform.position = savedPosition;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        if (data != null) 
+        {
+            data.playerPosition = this.transform.position;
+        }
     }
 }
