@@ -10,6 +10,11 @@ public class UIManager : MonoBehaviour
     public GameObject settingObj2;
     public GameObject backTO;
 
+    void Start()
+    {
+        Time.timeScale = 1f;
+    }
+
     public void OnBackButtonClicked()
     {
         settingObj1.SetActive(false);
@@ -30,4 +35,9 @@ public class UIManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1f;
+    }
 }
