@@ -6,5 +6,5 @@ using UnityEngine.UI;
 
 public class LoadButtonAnimation : MonoBehaviour
 {
-    
+   
 }
