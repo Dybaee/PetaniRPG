@@ -10,7 +10,6 @@ public class PausedMenu : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false; 
     }

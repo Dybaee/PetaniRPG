@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerTargetingState : PlayerBaseState
 {
@@ -17,7 +18,8 @@ public class PlayerTargetingState : PlayerBaseState
     }
 
     public override void EnterState()
-    {
+    {      
+        stateMachine.InputReader.HealEvent += HealEvent;
         stateMachine.InputReader.TargetingEvent += OnCancel;
         stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTreeHash, CrossFadeDuration);
     }
@@ -51,6 +53,7 @@ public class PlayerTargetingState : PlayerBaseState
 
     public override void ExitState()
     {
+        stateMachine.InputReader.HealEvent -= HealEvent;
         stateMachine.InputReader.TargetingEvent -= OnCancel;
     }
 
@@ -90,5 +93,10 @@ public class PlayerTargetingState : PlayerBaseState
             float value = stateMachine.InputReader.MovementValue.x > 0 ? 1f : -1f;
             stateMachine.Animator.SetFloat(TargetingRightHash, value, AnimatorDampTime, deltaTime);
         }
+    }
+
+    private void HealEvent()
+    {
+        stateMachine.SwitchState(new PlayerHealState(stateMachine));
     }
 }

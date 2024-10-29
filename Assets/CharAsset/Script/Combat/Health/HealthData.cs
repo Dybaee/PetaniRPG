@@ -7,7 +7,8 @@ public class HealthData : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 100;
 
-    [SerializeField] private int currentHealth;
+    [field: SerializeField] public int currentHealth { get; private set; }
+    public int HealChances;
     private bool isHitBlocked;
 
     public bool isDead => currentHealth == 0;
@@ -45,6 +46,14 @@ public class HealthData : MonoBehaviour
         {
             OnDie?.Invoke();
         }
+
+        Debug.Log(currentHealth);
+    }
+
+    public void HealSystem(int healValue)
+    {
+        if (currentHealth <= 0) { return; }
+        currentHealth += healValue;
 
         Debug.Log(currentHealth);
     }

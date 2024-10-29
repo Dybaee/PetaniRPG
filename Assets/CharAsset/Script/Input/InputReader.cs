@@ -10,7 +10,7 @@ public class InputReader : MonoBehaviour, PlayerControls.IPlayerActions
     public Vector2 MovementValue { get; private set; }
     public event Action TargetingEvent;
     public event Action CancelingEvent;
-    //public event Action AttackingEvent;
+    public event Action HealEvent;
 
     // UNTUK HOLD DOWN ATTACK
     public bool IsAttacking { get; private set; }
@@ -87,5 +87,14 @@ public class InputReader : MonoBehaviour, PlayerControls.IPlayerActions
         {
             IsBlocking = false;
         }
+    }
+
+    public void OnHeal(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            HealEvent?.Invoke();
+        }
+        return;
     }
 }

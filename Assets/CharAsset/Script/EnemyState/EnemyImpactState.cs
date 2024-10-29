@@ -16,7 +16,7 @@ public class EnemyImpactState : EnemyBaseState
 
     public override void EnterState()
     {
-        enemystateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeDuration);
+        //enemystateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeDuration);
     }
 
     public override void UpdateState(float deltaTime)
