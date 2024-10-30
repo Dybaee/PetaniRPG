@@ -9,14 +9,14 @@ public class EnemyImpactState : EnemyBaseState
     private const float AnimatorDampTime = 0.1f;
     private const float CrossFadeDuration = 0.2f;
 
-    private float duration = 0.5f;
+    private float duration = 1f;
     public EnemyImpactState(EnemyStateMachine enemystateMachine) : base(enemystateMachine)
     {
     }
 
     public override void EnterState()
     {
-        //enemystateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeDuration);
+        enemystateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeDuration);
     }
 
     public override void UpdateState(float deltaTime)

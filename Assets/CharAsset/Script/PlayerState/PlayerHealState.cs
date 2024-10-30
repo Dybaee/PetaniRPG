@@ -6,6 +6,10 @@ using UnityEngine.UIElements;
 
 public class PlayerHealState : PlayerBaseState
 {
+    private readonly int HealHash = Animator.StringToHash("Heal");
+
+    private const float CrossFadeDuration = 0.2f;
+
     private float duration = 1f;
     private int healChancesDecrease = 1;
     public PlayerHealState(PlayerStateMachine stateMachine) : base(stateMachine)
@@ -24,6 +28,8 @@ public class PlayerHealState : PlayerBaseState
         }
         else
         {
+            //stateMachine.AudioSource.Play();
+            stateMachine.Animator.CrossFadeInFixedTime(HealHash, CrossFadeDuration);           
             stateMachine.Health.HealSystem(stateMachine.HealValue);
             stateMachine.Health.HealChances -= healChancesDecrease;
         }       

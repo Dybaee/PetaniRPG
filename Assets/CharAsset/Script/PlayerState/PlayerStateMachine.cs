@@ -10,6 +10,7 @@ public class PlayerStateMachine : StateMachine, IDataPersistence
     [field: SerializeField] public Targeter TargeterScript { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiverScript { get; private set; }
     [field: SerializeField] public HealthData Health { get; private set; }
+    [field: SerializeField] public AudioSource AudioSource { get; private set; }
     [field: SerializeField] public AttackDamage AttackDamageScriptL { get; private set; }
     [field: SerializeField] public AttackDamage AttackDamageScriptR { get; private set; }
     [field: SerializeField] public AttackData[] AttackData { get; private set; }
