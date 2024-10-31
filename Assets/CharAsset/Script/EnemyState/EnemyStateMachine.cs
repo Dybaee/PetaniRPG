@@ -19,10 +19,14 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public int AttackDamage { get; private set; }
     [field: SerializeField] public int AttackKnockback { get; private set; }
 
+    public Quest1Ceklist quest1;
+
     public HealthData Player { get; private set; }
 
     private void Start()
     {
+        quest1 = GetComponent<Quest1Ceklist>();
+
         //menemukan player
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthData>();
 
@@ -52,6 +56,7 @@ public class EnemyStateMachine : StateMachine
 
     private void HandleDie()
     {
+        quest1.Killed();
         SwitchState(new EnemyDeadState(this));
     }
 
