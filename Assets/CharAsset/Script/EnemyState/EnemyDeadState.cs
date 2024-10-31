@@ -16,6 +16,8 @@ public class EnemyDeadState : EnemyBaseState
     {
         //anim or ragdoll
         enemystateMachine.Animator.CrossFadeInFixedTime(DeathHash, CrossFadeDuration);
+
+        //enemystateMachine.quest1.Killed();
         enemystateMachine.Weapon.gameObject.SetActive(false);
         GameObject.Destroy(enemystateMachine.Target);
     }
