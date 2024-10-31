@@ -14,11 +14,13 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public AttackDamage Weapon { get; private set; }
     [field: SerializeField] public HealthData Health { get; private set; }
     [field: SerializeField] public Target Target { get; private set; }
+    [field: SerializeField] public Quest1Ceklist quest1 { get; private set; }
+    [field: SerializeField] public EnemyHealthUI HealthUI { get; private set; }
+    [field: SerializeField] public float DivideAmount { get; private set; }
     [field: SerializeField] public float MovementSpeed { get; private set; }
     [field: SerializeField] public float AttackRange { get; private set; }
     [field: SerializeField] public int AttackDamage { get; private set; }
-    [field: SerializeField] public int AttackKnockback { get; private set; }
-    [field: SerializeField] public Quest1Ceklist quest1 { get; private set; }
+    [field: SerializeField] public int AttackKnockback { get; private set; } 
 
     public HealthData Player { get; private set; }
 

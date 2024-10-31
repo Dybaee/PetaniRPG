@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.9, y: -4}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0.1125, y: -4}
+  m_SizeDelta: {x: 119.13, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8003865334249494113
 CanvasRenderer:
@@ -100,7 +100,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4189006580446045793}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 6.287, y: 0.23766, z: 1}
   m_ConstrainProportionsScale: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Blacky Horse
+  m_text: Vorthrax
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 01a91ccee052e764f8142601b5ddf4f8, type: 2}
   m_sharedMaterial: {fileID: -8612791522115386490, guid: 01a91ccee052e764f8142601b5ddf4f8,

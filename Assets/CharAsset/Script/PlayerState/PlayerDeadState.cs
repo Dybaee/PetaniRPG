@@ -16,6 +16,8 @@ public class PlayerDeadState : PlayerBaseState
     {
         //anim or ragdoll
         stateMachine.Animator.CrossFadeInFixedTime(DeathHash, CrossFadeDuration);
+        stateMachine.Health.UIHealthZero();
+
         stateMachine.AttackDamageScriptL.gameObject.SetActive(false);
         stateMachine.AttackDamageScriptR?.gameObject.SetActive(false);
     }

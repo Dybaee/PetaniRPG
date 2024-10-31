@@ -14,11 +14,14 @@ public class EnemyDeadState : EnemyBaseState
 
     public override void EnterState()
     {
+        enemystateMachine.Weapon.gameObject.SetActive(false);
+
         //anim or ragdoll
         enemystateMachine.Animator.CrossFadeInFixedTime(DeathHash, CrossFadeDuration);
 
+        enemystateMachine.HealthUI.UIHealthZero();
+
         //enemystateMachine.quest1.Killed();
-        enemystateMachine.Weapon.gameObject.SetActive(false);
         GameObject.Destroy(enemystateMachine.Target);
     }
 

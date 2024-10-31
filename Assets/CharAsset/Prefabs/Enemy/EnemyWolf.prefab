@@ -2447,6 +2447,7 @@ GameObject:
   - component: {fileID: 2788616758711701739}
   - component: {fileID: 5181568566901321127}
   - component: {fileID: 3329908186137233919}
+  - component: {fileID: 4363057427752477715}
   - component: {fileID: 5405164091714673224}
   - component: {fileID: 1756113155470666393}
   - component: {fileID: 209685065589371579}
@@ -2568,11 +2569,13 @@ MonoBehaviour:
   <Weapon>k__BackingField: {fileID: 1757812997727727050}
   <Health>k__BackingField: {fileID: 3329908186137233919}
   <Target>k__BackingField: {fileID: 1756113155470666393}
+  <quest1>k__BackingField: {fileID: 0}
+  <HealthUI>k__BackingField: {fileID: 4363057427752477715}
+  <DivideAmount>k__BackingField: 40
   <MovementSpeed>k__BackingField: 5
   <AttackRange>k__BackingField: 1.3
   <AttackDamage>k__BackingField: 10
   <AttackKnockback>k__BackingField: 10
-  <quest1>k__BackingField: {fileID: 0}
 --- !u!114 &3329908186137233919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2588,6 +2591,19 @@ MonoBehaviour:
   maxHealth: 30
   <currentHealth>k__BackingField: 0
   HealChances: 0
+--- !u!114 &4363057427752477715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7041246819008601192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eda0a5286b6ea64eb229655d9c03793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthUI: {fileID: 7332225480638900557}
 --- !u!114 &5405164091714673224
 MonoBehaviour:
   m_ObjectHideFlags: 0

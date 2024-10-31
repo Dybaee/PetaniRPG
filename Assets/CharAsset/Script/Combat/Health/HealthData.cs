@@ -10,10 +10,11 @@ public class HealthData : MonoBehaviour
 
     [field: SerializeField] public int currentHealth { get; private set; }
     public int HealChances;
+    public int damageAmount { get; private set; }
 
     private bool isHitBlocked;
-    private int damageAmount;
-    private float decreaseXScale;
+    private float XScale;
+    private float healValue;
 
     public bool isDead => currentHealth == 0;
 
@@ -60,7 +61,8 @@ public class HealthData : MonoBehaviour
 
     public void HealSystem(int healValue)
     {
-        if (currentHealth <= 0) { return; }
+        this.healValue = healValue;
+        if (currentHealth <= 0) { return; }       
         currentHealth += healValue;
 
         Debug.Log(currentHealth);
@@ -69,18 +71,26 @@ public class HealthData : MonoBehaviour
     public void UIHealthDecreaseUpdate()
     {
         float damageCalculate = damageAmount / 100f;
-        decreaseXScale = Mathf.Clamp(HealthUI.localScale.x - damageCalculate, 0f, 1f);
+        XScale = Mathf.Clamp(HealthUI.localScale.x - damageCalculate, 0f, 1f);
 
-        HealthUI.localScale = new Vector3(decreaseXScale, 1f, 1f);
-        HealthUI.anchoredPosition = new Vector2((1 - decreaseXScale) * -HealthUI.rect.width / 2, HealthUI.anchoredPosition.y);
+        HealthUI.localScale = new Vector3(XScale, 1f, 1f);
+        HealthUI.anchoredPosition = new Vector2((1 - XScale) * -HealthUI.rect.width / 2, HealthUI.anchoredPosition.y);
     }
 
     public void UIHealthIncreaseUpdate()
     {
-        float damageCalculate = damageAmount / 100f;
-        decreaseXScale = Mathf.Clamp(HealthUI.localScale.x + damageCalculate, 0f, 1f);
+        float damageCalculate = healValue / 100f;
+        XScale = Mathf.Clamp(HealthUI.localScale.x + damageCalculate, 0f, 1f);
 
-        HealthUI.localScale = new Vector3(decreaseXScale, 1f, 1f);
-        HealthUI.anchoredPosition = new Vector2((1 - decreaseXScale) * -HealthUI.rect.width / 2, HealthUI.anchoredPosition.y);
+        HealthUI.localScale = new Vector3(XScale, 1f, 1f);
+        HealthUI.anchoredPosition = new Vector2((1 - XScale) * -HealthUI.rect.width / 2, HealthUI.anchoredPosition.y);
+    }
+
+    public void UIHealthZero()
+    {
+        XScale = 0f;
+
+        HealthUI.localScale = new Vector3(XScale, 1f, 1f);
+        HealthUI.anchoredPosition = new Vector2((1 - XScale) * -HealthUI.rect.width / 2, HealthUI.anchoredPosition.y);
     }
 }

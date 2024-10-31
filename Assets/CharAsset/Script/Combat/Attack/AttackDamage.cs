@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackDamage : MonoBehaviour
 {
     [SerializeField] private Collider ThisGameobjectCollider;
+    [SerializeField] private SphereCollider ThisComponentCollider;
 
     private List<Collider> alreadyCollidedWith = new List<Collider>();
     private int damage;
@@ -12,7 +13,10 @@ public class AttackDamage : MonoBehaviour
 
     private void Start()
     {
-        
+        if(ThisComponentCollider == null)
+        {
+            return;
+        }
     }
 
     private void OnEnable()
@@ -23,8 +27,9 @@ public class AttackDamage : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other == ThisGameobjectCollider) { return; }
+        if(other == ThisComponentCollider) { return; }
 
-        if(alreadyCollidedWith.Contains(other)) { return; }
+        if (alreadyCollidedWith.Contains(other)) { return; }
 
         alreadyCollidedWith.Add(other);
 
