@@ -69,14 +69,18 @@ public class HealthData : MonoBehaviour
     public void UIHealthDecreaseUpdate()
     {
         float damageCalculate = damageAmount / 100f;
-        decreaseXScale = HealthUI.localScale.x - damageCalculate;
-        HealthUI.transform.localScale = new Vector3(decreaseXScale, 1f, 1f);
+        decreaseXScale = Mathf.Clamp(HealthUI.localScale.x - damageCalculate, 0f, 1f);
+
+        HealthUI.localScale = new Vector3(decreaseXScale, 1f, 1f);
+        HealthUI.anchoredPosition = new Vector2((1 - decreaseXScale) * -HealthUI.rect.width / 2, HealthUI.anchoredPosition.y);
     }
 
     public void UIHealthIncreaseUpdate()
     {
         float damageCalculate = damageAmount / 100f;
-        decreaseXScale = HealthUI.localScale.x + damageCalculate;
-        HealthUI.transform.localScale = new Vector3(decreaseXScale, 1f, 1f);
+        decreaseXScale = Mathf.Clamp(HealthUI.localScale.x + damageCalculate, 0f, 1f);
+
+        HealthUI.localScale = new Vector3(decreaseXScale, 1f, 1f);
+        HealthUI.anchoredPosition = new Vector2((1 - decreaseXScale) * -HealthUI.rect.width / 2, HealthUI.anchoredPosition.y);
     }
 }
