@@ -28,7 +28,8 @@ public class PlayerHealState : PlayerBaseState
         }
         else
         {
-            //stateMachine.AudioSource.Play();
+            stateMachine.Health.UIHealthIncreaseUpdate();
+            stateMachine.AudioSource.PlayOneShot(stateMachine.AudioClips[0]);
             stateMachine.Animator.CrossFadeInFixedTime(HealHash, CrossFadeDuration);           
             stateMachine.Health.HealSystem(stateMachine.HealValue);
             stateMachine.Health.HealChances -= healChancesDecrease;

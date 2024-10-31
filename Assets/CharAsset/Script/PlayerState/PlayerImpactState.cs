@@ -16,6 +16,8 @@ public class PlayerImpactState : PlayerBaseState
 
     public override void EnterState()
     {
+        stateMachine.AudioSource.PlayOneShot(stateMachine.AudioClips[1]);
+        stateMachine.Health.UIHealthDecreaseUpdate();
         stateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeDuration);
     }
 

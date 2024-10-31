@@ -10,6 +10,11 @@ public class AttackDamage : MonoBehaviour
     private int damage;
     private float knockbackValue;
 
+    private void Start()
+    {
+        
+    }
+
     private void OnEnable()
     {
         alreadyCollidedWith.Clear();
