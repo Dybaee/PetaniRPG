@@ -41,7 +41,7 @@ public class Quest2Ceklist : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         anim.SetTrigger("Ceklist");
 
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(2.5f);
         tutorialObj.gameObject.SetActive(false);
     }
 }

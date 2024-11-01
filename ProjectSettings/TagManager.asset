@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Checkpoint
   - HealthUI
+  - NPC
   layers:
   - Default
   - TransparentFX

@@ -9,19 +9,23 @@ public class DialogSystem : MonoBehaviour
     public GameObject dialogBox;
     public string[] lines;
     public float textSpeed;
+    public float fastTextSpeed; // Speed when speeding up the animation
     private bool canNextLine;
     private int index;
+    private bool isSkipping;
     public MonoBehaviour PlayerStateMachine;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+    }
+
+    void OnEnable()
+    {
+        ResetDialog();
         dialogBox.SetActive(true);
-        textComponent.text = string.Empty;
         StartDialogue();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -33,26 +37,47 @@ public class DialogSystem : MonoBehaviour
             else
             {
                 StopAllCoroutines();
-                canNextLine = true;
-
+                isSkipping = true;
             }
         }
     }
 
-    void StartDialogue()
+    void ResetDialog()
     {
         index = 0;
+        textComponent.text = string.Empty;
+        canNextLine = false;
+        isSkipping = false;
+    }
+
+    void StartDialogue()
+    {
         StartCoroutine(TypeLine());
     }
 
     IEnumerator TypeLine()
     {
         canNextLine = false;
-        foreach (char c in lines[index].ToCharArray())
+        isSkipping = false;
+
+        string currentLine = lines[index];
+        for (int i = 0; i < currentLine.Length; i++)
         {
-            textComponent.text += c;
-            yield return new WaitForSeconds(textSpeed);
+            textComponent.text = currentLine.Substring(0, i + 1);
+
+            if (Input.GetMouseButtonDown(0))
+            {
+               
+                textComponent.text = currentLine;
+                yield return null;
+                break;
+            }
+
+            yield return new WaitForSeconds(isSkipping ? fastTextSpeed : textSpeed);
         }
+
+        canNextLine = true;
+        isSkipping = false; 
     }
 
     void NextLine()
@@ -65,8 +90,8 @@ public class DialogSystem : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
             dialogBox.SetActive(false);
+            gameObject.SetActive(false);
             PlayerStateMachine.enabled = true;
         }
     }
