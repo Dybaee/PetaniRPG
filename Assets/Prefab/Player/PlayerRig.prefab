@@ -11854,8 +11854,8 @@ MonoBehaviour:
   m_LayerIndex: 0
   m_ShowDebugText: 0
   m_ChildCameras:
-  - {fileID: 2463415461194759390}
-  - {fileID: 8480173978650220665}
+  - {fileID: 0}
+  - {fileID: 0}
   m_Instructions:
   - m_FullHash: 585382737
     m_VirtualCamera: {fileID: 2463415461194759390}
@@ -19880,6 +19880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThisGameobjectCollider: {fileID: 1575837689742406918}
+  ThisComponentCollider: {fileID: 0}
 --- !u!1 &7428227017632591783
 GameObject:
   m_ObjectHideFlags: 0
