@@ -8,6 +8,9 @@ public class EnemyDeadState : EnemyBaseState
 
     private const float AnimatorDampTime = 0.1f;
     private const float CrossFadeDuration = 0.2f;
+
+    private bool isDead = false;
+
     public EnemyDeadState(EnemyStateMachine enemystateMachine) : base(enemystateMachine)
     {
     }
@@ -21,7 +24,7 @@ public class EnemyDeadState : EnemyBaseState
 
         enemystateMachine.HealthUI.UIHealthZero();
 
-        //enemystateMachine.quest1.Killed();
+        //enemystateMachine.quest1.Kill();
         GameObject.Destroy(enemystateMachine.Target);
     }
 

@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class Quest1Ceklist : MonoBehaviour
+public class QuestTutorial : MonoBehaviour
 {
-
     public GameObject tutorialStatus;
     public GameObject tutorialObj;
     public Animator anim;
-    public bool kill = false;
+    public bool enough = false;
 
     // Start is called before the first frame update
     void Start()
@@ -16,31 +16,27 @@ public class Quest1Ceklist : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public void Killed()
+    public void UpdateStatus()
     {
-        kill = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        UpdateStatus();
-    }
-
-    void UpdateStatus()
-    {
-        if (kill) 
+        if (enough)
         {
             StartCoroutine(AnimDelay());
         }
     }
 
+    public void OnHit()
+    {
+        enough = true;
+        UpdateStatus();
+    }
+
     IEnumerator AnimDelay()
     {
-        yield return new WaitForSeconds(.5f);
+        tutorialStatus.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
         anim.SetTrigger("Ceklist");
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(5.5f);
         tutorialObj.gameObject.SetActive(false);
     }
 }

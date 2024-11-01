@@ -20,7 +20,10 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public float MovementSpeed { get; private set; }
     [field: SerializeField] public float AttackRange { get; private set; }
     [field: SerializeField] public int AttackDamage { get; private set; }
-    [field: SerializeField] public int AttackKnockback { get; private set; } 
+    [field: SerializeField] public int AttackKnockback { get; private set; }
+
+    public bool isDead = false;
+    
 
     public HealthData Player { get; private set; }
 
@@ -32,6 +35,7 @@ public class EnemyStateMachine : StateMachine
         //agar ai tidak menggerakkan enemy(agar bisa modify lebih jauh) 
         Agent.updatePosition = false;
         Agent.updateRotation = false;
+
 
         SwitchState(new EnemyIdleState(this));
     }
@@ -55,6 +59,7 @@ public class EnemyStateMachine : StateMachine
 
     private void HandleDie()
     {
+        quest1.OnKilled();
         SwitchState(new EnemyDeadState(this));
     }
 
@@ -63,4 +68,6 @@ public class EnemyStateMachine : StateMachine
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, PlayerDetection);
     }
+
+    
 }

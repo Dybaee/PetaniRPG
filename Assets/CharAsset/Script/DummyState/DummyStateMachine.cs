@@ -6,6 +6,7 @@ public class DummyStateMachine : StateMachine
 {
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public HealthData Health { get; private set; }
+    [field: SerializeField] public QuestTutorial questTutorial { get; private set; }
 
     private void Start()
     {
@@ -24,6 +25,11 @@ public class DummyStateMachine : StateMachine
 
     private void HandleTakeDamage()
     {
+        if (Health.currentHealth <= 1900)
+        {
+            questTutorial.OnHit();
+        }
+
         SwitchState(new DummyImpactState(this));
     }
 }
