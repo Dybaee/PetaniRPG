@@ -22,7 +22,6 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public int AttackDamage { get; private set; }
     [field: SerializeField] public int AttackKnockback { get; private set; }
 
-    public bool isDead = false;
     
 
     public HealthData Player { get; private set; }
@@ -59,8 +58,14 @@ public class EnemyStateMachine : StateMachine
 
     private void HandleDie()
     {
+        StartCoroutine(EnemyDie());
+    }
+
+    IEnumerator EnemyDie()
+    {
         quest1.OnKilled();
         SwitchState(new EnemyDeadState(this));
+        yield break;
     }
 
     private void OnDrawGizmosSelected()
