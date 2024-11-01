@@ -47,14 +47,14 @@ public class NPCTrigger : MonoBehaviour
             {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                PlayerStateMachine.enabled = false;
+                // PlayerStateMachine.enabled = false;
                 dialogueScript.enabled = true;
             }
             else
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
-                PlayerStateMachine.enabled = true;
+                // PlayerStateMachine.enabled = true;
                 dialogueScript.enabled = false;
                 
             }

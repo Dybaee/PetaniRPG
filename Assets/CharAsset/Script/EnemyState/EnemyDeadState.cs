@@ -23,8 +23,6 @@ public class EnemyDeadState : EnemyBaseState
         enemystateMachine.Animator.CrossFadeInFixedTime(DeathHash, CrossFadeDuration);
 
         enemystateMachine.HealthUI.UIHealthZero();
-
-        //enemystateMachine.quest1.Kill();
         GameObject.Destroy(enemystateMachine.Target);
     }
 
