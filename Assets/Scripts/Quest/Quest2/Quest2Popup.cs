@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestPopup1 : MonoBehaviour
+public class Quest2Popup : MonoBehaviour
 {
     public GameObject qbar;
     public GameObject previousQuest;
@@ -10,12 +10,11 @@ public class QuestPopup1 : MonoBehaviour
 
     void Start()
     {
-        qbar.SetActive(false); 
+        qbar.SetActive(false);
     }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))  
+        if (other.CompareTag("Player"))
         {
             if (previousQuest.activeSelf && !questTriggered)
             {
