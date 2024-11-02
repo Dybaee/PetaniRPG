@@ -14,6 +14,7 @@ public class TriggerQuest2Ceklist : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        quest2.finding = true;
         quest2.Find();
     }
 }

@@ -19,8 +19,14 @@ public class NPCTrigger : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             fPress.SetActive(true);
-            quest3.SetActive(true);
+            StartCoroutine(QuestDone());
         }
+    }
+
+    IEnumerator QuestDone()
+    {
+        yield return new WaitForSeconds(3f);
+        quest3.SetActive(true);
     }
 
     private void OnTriggerExit(Collider other) 
