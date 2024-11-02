@@ -26,6 +26,16 @@ public abstract class PlayerBaseState : State
         stateMachine.transform.rotation = Quaternion.LookRotation(lookPos);
     }
 
+    protected void FaceToNPC()
+    {
+        if(stateMachine.DialogueTriggerScript.CurrentNPC == null) { return; }
+
+        Vector3 lookPos = stateMachine.DialogueTriggerScript.CurrentNPC.transform.position - stateMachine.transform.position;
+        lookPos.y = 0f;
+
+        stateMachine.transform.rotation = Quaternion.LookRotation(lookPos);
+    }
+
     protected void ReturnToAnyLocomotion()
     {
         if(stateMachine.TargeterScript.CurrentTarget != null)

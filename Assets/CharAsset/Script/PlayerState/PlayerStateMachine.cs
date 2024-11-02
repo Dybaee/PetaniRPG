@@ -8,6 +8,7 @@ public class PlayerStateMachine : StateMachine, IDataPersistence
     [field: SerializeField] public CharacterController CharController { get; private set; }
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public Targeter TargeterScript { get; private set; }
+    [field: SerializeField] public InDialogue DialogueTriggerScript { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiverScript { get; private set; }
     [field: SerializeField] public HealthData Health { get; private set; }
     [field: SerializeField] public AudioSource AudioSource { get; private set; }

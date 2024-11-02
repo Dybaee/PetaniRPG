@@ -10,16 +10,18 @@ public class DialogSystem : MonoBehaviour
     public string[] lines;
     public float textSpeed;
     public float fastTextSpeed; // Speed when speeding up the animation
+    public bool isActive;
     private bool canNextLine;
     private int index;
     private bool isSkipping;
-    public MonoBehaviour PlayerStateMachine;
+    //public MonoBehaviour PlayerStateMachine;
 
     private void Start()
     {
+        
     }
 
-    void OnEnable()
+    public void StartSequence()
     {
         ResetDialog();
         dialogBox.SetActive(true);
@@ -52,6 +54,7 @@ public class DialogSystem : MonoBehaviour
 
     void StartDialogue()
     {
+        isActive = true;
         StartCoroutine(TypeLine());
     }
 
@@ -91,8 +94,8 @@ public class DialogSystem : MonoBehaviour
         else
         {
             dialogBox.SetActive(false);
-            gameObject.SetActive(false);
-            PlayerStateMachine.enabled = true;
+            //gameObject.SetActive(false);
+            isActive = false;
         }
     }
 }

@@ -9,8 +9,6 @@ public class EnemyDeadState : EnemyBaseState
     private const float AnimatorDampTime = 0.1f;
     private const float CrossFadeDuration = 0.2f;
 
-    private bool isDead = false;
-
     public EnemyDeadState(EnemyStateMachine enemystateMachine) : base(enemystateMachine)
     {
     }

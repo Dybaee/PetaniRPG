@@ -11,6 +11,7 @@ public class InputReader : MonoBehaviour, PlayerControls.IPlayerActions
     public event Action TargetingEvent;
     public event Action CancelingEvent;
     public event Action HealEvent;
+    public event Action InteractEvent;
 
     // UNTUK HOLD DOWN ATTACK
     public bool IsAttacking { get; private set; }
@@ -94,6 +95,15 @@ public class InputReader : MonoBehaviour, PlayerControls.IPlayerActions
         if (context.performed)
         {
             HealEvent?.Invoke();
+        }
+        return;
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            InteractEvent?.Invoke();
         }
         return;
     }

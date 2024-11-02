@@ -17,6 +17,7 @@ public class PlayerFreeLookState : PlayerBaseState
         Cursor.lockState = CursorLockMode.Locked;
         stateMachine.InputReader.HealEvent += HealEvent;
         stateMachine.InputReader.TargetingEvent += OnTarget;
+        stateMachine.InputReader.InteractEvent += OnInteract;
         stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTreeHash, CrossFadeDuration);
     }
 
@@ -45,6 +46,7 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         stateMachine.InputReader.TargetingEvent -= OnTarget;
         stateMachine.InputReader.HealEvent -= HealEvent;
+        stateMachine.InputReader.InteractEvent += OnInteract;
     }
 
     private Vector3 CalculateMovement() 
@@ -83,5 +85,12 @@ public class PlayerFreeLookState : PlayerBaseState
     private void HealEvent()
     {
         stateMachine.SwitchState(new PlayerHealState(stateMachine));
+    }
+
+    private void OnInteract()
+    {
+        if(!stateMachine.DialogueTriggerScript.SelectNPC()) { return; }
+        stateMachine.DialogueTriggerScript.dialogueScriptCheck.dialogBox.SetActive(true);
+        stateMachine.SwitchState(new PlayerDialogueState(stateMachine));
     }
 }
