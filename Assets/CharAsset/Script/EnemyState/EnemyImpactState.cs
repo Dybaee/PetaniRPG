@@ -18,7 +18,7 @@ public class EnemyImpactState : EnemyBaseState
     {
         enemystateMachine.Weapon.gameObject.SetActive(false);
         enemystateMachine.HealthUI.UIHealthDecreaseUpdate(enemystateMachine.DivideAmount);
-        enemystateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeDuration);
+        //enemystateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeDuration);
     }
 
     public override void UpdateState(float deltaTime)

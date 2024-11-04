@@ -56,7 +56,7 @@ public class HealthData : MonoBehaviour
             OnDie?.Invoke();
         }
 
-        Debug.Log(currentHealth);
+        //Debug.Log(currentHealth);
     }
 
     public void HealSystem(int healValue)
@@ -65,7 +65,7 @@ public class HealthData : MonoBehaviour
         if (currentHealth <= 0) { return; }       
         currentHealth += healValue;
 
-        Debug.Log(currentHealth);
+        //Debug.Log(currentHealth);
     }
 
     public void UIHealthDecreaseUpdate()
