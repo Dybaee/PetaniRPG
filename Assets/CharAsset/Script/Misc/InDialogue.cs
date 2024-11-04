@@ -7,8 +7,7 @@ public class InDialogue : MonoBehaviour
 {
     [SerializeField] private CinemachineTargetGroup cineTargetGroup;
     [SerializeField] public GameObject dialogSystem;
-    [SerializeField] public MonoBehaviour dialogueScript;
-    [SerializeField] public DialogSystem dialogueScriptCheck;
+    [SerializeField] public DialogSystem dialogueScript;
     
     public List<NPCTrigger> NonPlayableCharacters = new List<NPCTrigger>();
 
@@ -57,16 +56,16 @@ public class InDialogue : MonoBehaviour
     public void ToggleDialogue()
     {
         dialogActive = !dialogActive;
-        if (dialogSystem != null && dialogueScriptCheck.isActive == false)
+        if (dialogSystem != null && dialogueScript.isActive == false)
         {       
-            dialogueScriptCheck.isActive = true;
+            dialogueScript.isActive = true;
             dialogSystem.SetActive(dialogActive);
 
             if (dialogActive)
             {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                dialogueScriptCheck.StartSequence();
+                dialogueScript.StartSequence();
             }
         }
         else

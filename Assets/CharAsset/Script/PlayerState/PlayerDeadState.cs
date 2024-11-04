@@ -20,7 +20,7 @@ public class PlayerDeadState : PlayerBaseState
         //anim or ragdoll
         stateMachine.Animator.CrossFadeInFixedTime(DeathHash, CrossFadeDuration);
         stateMachine.Health.UIHealthZero();
-        stateMachine.StartCoroutine(stateMachine.DiedPopup.AnimPopup());
+        //stateMachine.StartCoroutine(stateMachine.DiedPopup.AnimPopup());
 
         stateMachine.AttackDamageScriptL.gameObject.SetActive(false);
         stateMachine.AttackDamageScriptR?.gameObject.SetActive(false);

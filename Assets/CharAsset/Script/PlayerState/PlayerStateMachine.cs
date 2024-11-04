@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerStateMachine : StateMachine, IDataPersistence
 {
@@ -16,14 +17,15 @@ public class PlayerStateMachine : StateMachine, IDataPersistence
     [field: SerializeField] public AttackDamage AttackDamageScriptR { get; private set; }
     [field: SerializeField] public AttackData[] AttackData { get; private set; }
     [field: SerializeField] public AudioClip[] AudioClips { get; private set; }
-
-    [field: SerializeField] public DiedPopup DiedPopup { get; private set; }
+    
+    //[field: SerializeField] public DiedPopup DiedPopup { get; private set; }
 
     [field: SerializeField] public int HealValue { get; private set; }
     [field: SerializeField] public float FreelookRunSpeed { get; private set; }
     [field: SerializeField] public float TargetingRunSpeed { get; private set; }
     [field: SerializeField] public float RotationSmoothValue { get; private set; }
 
+    [SerializeField] private UnityEvent onPlayerDead;
     public Transform MainCamTransform { get; private set; }
     // First state when the game is on
     private void Start()
@@ -51,6 +53,7 @@ public class PlayerStateMachine : StateMachine, IDataPersistence
 
     private void HandleDie()
     {
+        onPlayerDead?.Invoke();
         SwitchState(new PlayerDeadState(this));
     }
 

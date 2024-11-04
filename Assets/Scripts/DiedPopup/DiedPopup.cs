@@ -11,7 +11,12 @@ public class DiedPopup : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public IEnumerator AnimPopup()
+    public void PopUp()
+    {
+        StartCoroutine(AnimPopup());
+    }
+
+    private IEnumerator AnimPopup()
     {
         anim.SetTrigger("Popup");
         yield return new WaitForSeconds(0.5f); 

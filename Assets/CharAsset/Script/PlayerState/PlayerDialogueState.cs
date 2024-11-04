@@ -22,7 +22,7 @@ public class PlayerDialogueState : PlayerBaseState
     {
         MoveWithoutMotion(deltaTime);
         FaceToNPC();
-        if (!stateMachine.DialogueTriggerScript.dialogueScriptCheck.isActive)
+        if (!stateMachine.DialogueTriggerScript.dialogueScript.isActive)
         {
             ReturnToAnyLocomotion();
         }
@@ -35,7 +35,7 @@ public class PlayerDialogueState : PlayerBaseState
 
     private void OnCancel()
     {
-        stateMachine.DialogueTriggerScript.dialogueScriptCheck.dialogBox.SetActive(false);
+        stateMachine.DialogueTriggerScript.dialogueScript.dialogBox.SetActive(false);
         stateMachine.DialogueTriggerScript.CancelNPC();
         ReturnToAnyLocomotion();
     }

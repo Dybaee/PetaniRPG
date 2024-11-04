@@ -90,7 +90,7 @@ public class PlayerFreeLookState : PlayerBaseState
     private void OnInteract()
     {
         if(!stateMachine.DialogueTriggerScript.SelectNPC()) { return; }
-        stateMachine.DialogueTriggerScript.dialogueScriptCheck.dialogBox.SetActive(true);
+        stateMachine.DialogueTriggerScript.dialogueScript.dialogBox.SetActive(true);
         stateMachine.SwitchState(new PlayerDialogueState(stateMachine));
     }
 }

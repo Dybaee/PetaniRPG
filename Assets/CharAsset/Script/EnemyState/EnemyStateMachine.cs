@@ -23,7 +23,7 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public int AttackDamage { get; private set; }
     [field: SerializeField] public int AttackKnockback { get; private set; }
 
-    //[SerializeField] private UnityEvent onEnemyKilled;
+    [SerializeField] private UnityEvent onEnemyKilled;
 
     public HealthData Player { get; private set; }
 
@@ -59,8 +59,9 @@ public class EnemyStateMachine : StateMachine
 
     private void HandleDie()
     {
-        StartCoroutine(EnemyDie());
-        //SwitchState(new EnemyDeadState(this));
+        //StartCoroutine(EnemyDie());
+        onEnemyKilled.Invoke();
+        SwitchState(new EnemyDeadState(this));
     }
 
     IEnumerator EnemyDie()
