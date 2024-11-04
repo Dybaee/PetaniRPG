@@ -8,8 +8,11 @@ public class PlayerDeadState : PlayerBaseState
 
     private const float AnimatorDampTime = 0.1f;
     private const float CrossFadeDuration = 0.2f;
+
+
     public PlayerDeadState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
+        
     }
 
     public override void EnterState()
@@ -17,9 +20,11 @@ public class PlayerDeadState : PlayerBaseState
         //anim or ragdoll
         stateMachine.Animator.CrossFadeInFixedTime(DeathHash, CrossFadeDuration);
         stateMachine.Health.UIHealthZero();
+        stateMachine.StartCoroutine(stateMachine.DiedPopup.AnimPopup());
 
         stateMachine.AttackDamageScriptL.gameObject.SetActive(false);
         stateMachine.AttackDamageScriptR?.gameObject.SetActive(false);
+
     }
 
     public override void ExitState()
