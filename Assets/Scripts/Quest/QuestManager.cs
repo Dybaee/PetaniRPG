@@ -20,7 +20,7 @@ public class QuestManager : MonoBehaviour
         DummyTutorialWall.SetActive(true);
 
         //Quest 1 Here
-        Debug.Log("Use left click to hit the dummy");
+        Debug.Log("QUEST : Use left click to hit the dummy");
     }
 
     private void Update() 
@@ -28,16 +28,34 @@ public class QuestManager : MonoBehaviour
         
     }
 
-    private void Quest2Start()
+    public void Quest2Start()
     {
         // Start quest 2 here
-        Debug.Log("Kill some enemy dogs");
+        Debug.Log("QUEST : Kill some enemy dogs");
     }
 
     private void Quest3Start()
     {
         // Start quest 3 here
-        Debug.Log("Go to your village");
+        Debug.Log("QUEST : Go to your village");
+    }
+
+    public void Quest4Start()
+    {
+        // Start Quest 4 here
+        Debug.Log("QUEST : Eliminate the invaders");
+    }
+    
+    private void Quest5Start()
+    {
+        // Start Quest 5 here
+        Debug.Log("QUEST : Find any survivor");
+    }
+
+    public void Quest6Start()
+    {
+        // Start Quest 6 here
+        Debug.Log("QUEST : Kill the enemy boss");
     }
 
     public void TutorialDummy()
@@ -45,7 +63,6 @@ public class QuestManager : MonoBehaviour
         // Quest 2 muncul, quest 1 ceklis
         Debug.Log("Tutorial complete");
         DummyTutorialWall.SetActive(false);
-        Quest2Start();
     }
 
     public void EnemySawahDecrease()
@@ -70,10 +87,10 @@ public class QuestManager : MonoBehaviour
     public void EnemyDesaDecrease()
     {
         // Quest 2, if enemy dead then Decrease enemy count
-        AreaSawahEnemies -= 1;
-        if (AreaSawahEnemies <= 0)
+        AreaDesaEnemies -= 1;
+        if (AreaDesaEnemies <= 0)
         {
-            AreaSawahEnemies = 0;
+            AreaDesaEnemies = 0;
         }
 
         if(AreaDesaEnemies == 0)
@@ -81,8 +98,15 @@ public class QuestManager : MonoBehaviour
             // Quest 4 clear if AreaDesaEnemies = 0
             AreaDesaWall.SetActive(false);
             Debug.Log("Area is Cleared");
+            Quest5Start();
         }
         else{return; }
+    }
+
+    public void SurvivorFound()
+    {
+        // Quest 5 Clear
+        Debug.Log("Survivor has found");
     }
 
     public void BossDied()

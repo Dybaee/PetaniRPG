@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class PlayerDeadState : PlayerBaseState
@@ -9,6 +10,7 @@ public class PlayerDeadState : PlayerBaseState
     private const float AnimatorDampTime = 0.1f;
     private const float CrossFadeDuration = 0.2f;
 
+    private float timer;
 
     public PlayerDeadState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
@@ -17,6 +19,8 @@ public class PlayerDeadState : PlayerBaseState
 
     public override void EnterState()
     {
+        timer = stateMachine.RespawnTime;
+        
         //anim or ragdoll
         stateMachine.Animator.CrossFadeInFixedTime(DeathHash, CrossFadeDuration);
         stateMachine.Health.UIHealthZero();
@@ -27,12 +31,22 @@ public class PlayerDeadState : PlayerBaseState
 
     }
 
-    public override void ExitState()
+    public override void UpdateState(float deltaTime)
     {
-        
+        MoveWithoutMotion(deltaTime);
+        timer -= deltaTime;
+        if(timer <= 0)
+        {
+            timer = 0f;
+        }
+
+        if(timer == 0)
+        {
+            stateMachine.SwitchState(new PlayerRespawnState(stateMachine));
+        }
     }
 
-    public override void UpdateState(float deltaTime)
+    public override void ExitState()
     {
         
     }

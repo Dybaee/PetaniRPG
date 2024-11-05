@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DialogSystem : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class DialogSystem : MonoBehaviour
     private bool canNextLine;
     private int index;
     private bool isSkipping;
+    [SerializeField] private UnityEvent onDialogueDone;
     //public MonoBehaviour PlayerStateMachine;
 
     private void Start()
@@ -96,6 +98,7 @@ public class DialogSystem : MonoBehaviour
             dialogBox.SetActive(false);
             //gameObject.SetActive(false);
             isActive = false;
+            onDialogueDone?.Invoke();
         }
     }
 }

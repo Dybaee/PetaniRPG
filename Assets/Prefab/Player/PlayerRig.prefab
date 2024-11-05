@@ -1670,7 +1670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 0.50771725, z: -2.9981809}
+  m_FollowOffset: {x: 0, y: 0.50791925, z: -2.9981332}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1690,7 +1690,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 17.338295
+    Value: 17.338306
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -4892,7 +4892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 0.50771725, z: -2.9981809}
+  m_FollowOffset: {x: 0, y: 0.50791925, z: -2.9981332}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -4912,7 +4912,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 17.338295
+    Value: 17.338306
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -5181,7 +5181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102383018886318461}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000026720714, y: -0.00000089502794, z: 0.00000022418226,
+  m_LocalRotation: {x: 0.0000065738377, y: -0.0000009259864, z: 0.00000023045543,
     w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -9364,7 +9364,7 @@ Transform:
   m_GameObject: {fileID: 3741318571052597043}
   serializedVersion: 2
   m_LocalRotation: {x: 0.119629234, y: 0.14962167, z: -0.01824003, w: 0.9813101}
-  m_LocalPosition: {x: -0.89349365, y: 1.6587181, z: -2.8619537}
+  m_LocalPosition: {x: -0.8934784, y: 1.6589203, z: -2.861908}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9420,7 +9420,7 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_YAxis:
-    Value: 0.50139415
+    Value: 0.5014306
     m_SpeedMode: 0
     m_MaxSpeed: 0.5
     m_AccelTime: 0
@@ -9444,7 +9444,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 17.338295
+    Value: 17.338306
     m_SpeedMode: 0
     m_MaxSpeed: 150
     m_AccelTime: 0
@@ -14431,7 +14431,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5739281081227030919}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.018168202, y: -0.00000076559456, z: 0.00000017438654, w: 0.999835}
+  m_LocalRotation: {x: -0.018134912, y: -0.00000091331094, z: 0.0000002087854, w: 0.9998356}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15480,7 +15480,7 @@ MonoBehaviour:
   <AttackDamageScriptR>k__BackingField: {fileID: 0}
   <AttackData>k__BackingField:
   - <AnimationName>k__BackingField: Attack1
-    <Damage>k__BackingField: 5
+    <Damage>k__BackingField: 100
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 1
     <ComboAttackTime>k__BackingField: 0.6
@@ -15508,15 +15508,46 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 51b2afea850915f4a96d61add16f0fc8, type: 3}
   - {fileID: 8300000, guid: a3bc1e7636f40ec47b560ee7abfc07a0, type: 3}
   <HealValue>k__BackingField: 10
+  <RespawnTime>k__BackingField: 2
   <FreelookRunSpeed>k__BackingField: 6
   <TargetingRunSpeed>k__BackingField: 2
   <RotationSmoothValue>k__BackingField: 10
+  onPlayerHeal:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PotionManager, Assembly-CSharp
+        m_MethodName: DecreaseUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onPlayerDead:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DiedPopup, Assembly-CSharp
         m_MethodName: PopUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPlayerRespawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PotionManager, Assembly-CSharp
+        m_MethodName: ResetHealcount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15568,6 +15599,7 @@ MonoBehaviour:
   maxHealth: 100
   <currentHealth>k__BackingField: 0
   HealChances: 5
+  currentHealChances: 0
 --- !u!114 &8586227737726573017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16261,7 +16293,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6361116231286599181}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.018162748, y: -0.00000076199274, z: 0.0000002022521, w: 0.9998351}
+  m_LocalRotation: {x: 0.018196026, y: -0.00000091511185, z: 0.00000024250784, w: 0.9998345}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16877,7 +16909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 0.50771725, z: -2.9981809}
+  m_FollowOffset: {x: 0, y: 0.50791925, z: -2.9981332}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -16897,7 +16929,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 17.338295
+    Value: 17.338306
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1

@@ -7,9 +7,26 @@ using UnityEngine.UI;
 public class PotionManager : MonoBehaviour
 {
     public TextMeshProUGUI potionCountText; 
+    [SerializeField] private float HealCount = 5f;
+    private float currentHealCount;
     
-    public void UpdatePotion(int currentCount)
+    private void Start() 
     {
-        potionCountText.text = currentCount.ToString();
+        currentHealCount = HealCount;
+    }
+
+    private void LateUpdate()
+    {
+        potionCountText.text = currentHealCount.ToString();
+    }
+
+    public void DecreaseUI()
+    {
+        currentHealCount -= 1;
+    }
+
+    public void ResetHealcount()
+    {
+        currentHealCount = HealCount;
     }
 }

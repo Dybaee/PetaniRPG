@@ -10,6 +10,7 @@ public class HealthData : MonoBehaviour
 
     [field: SerializeField] public int currentHealth { get; private set; }
     public int HealChances;
+    public int currentHealChances;
     public int damageAmount { get; private set; }
 
     private bool isHitBlocked;
@@ -20,6 +21,8 @@ public class HealthData : MonoBehaviour
 
     public event Action OnTakeDamage;
     public event Action OnDie;
+    public event Action OnRespawn;
+    public event Action OnHeal;
 
     // Start is called before the first frame update
     private void Start()
@@ -28,6 +31,7 @@ public class HealthData : MonoBehaviour
         HealthUI = HealthGO.GetComponent<RectTransform>();
 
         currentHealth = maxHealth;
+        currentHealChances = HealChances;
     }
 
     public void SetInvulnerableBlock(bool isHitBlocked)
@@ -65,7 +69,17 @@ public class HealthData : MonoBehaviour
         if (currentHealth <= 0) { return; }       
         currentHealth += healValue;
 
+        OnHeal?.Invoke();
         //Debug.Log(currentHealth);
+    }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+        HealthUI.localScale = new Vector3(1f, 1f, 1f);
+        currentHealChances = HealChances;
+
+        OnRespawn?.Invoke();
     }
 
     public void UIHealthDecreaseUpdate()

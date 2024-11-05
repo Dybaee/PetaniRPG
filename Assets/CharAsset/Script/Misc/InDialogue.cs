@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InDialogue : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class InDialogue : MonoBehaviour
 
     public NPCTrigger CurrentNPC { get; private set; }
     public bool dialogActive;
+
     private void OnTriggerEnter(Collider other)
     {
         NPCTrigger trigger = other.GetComponent<NPCTrigger>();

@@ -36,8 +36,7 @@ public class PlayerHealState : PlayerBaseState
             stateMachine.AudioSource.PlayOneShot(stateMachine.AudioClips[0]);
             stateMachine.Animator.CrossFadeInFixedTime(HealHash, CrossFadeDuration);           
             stateMachine.Health.HealSystem(stateMachine.HealValue);
-            stateMachine.Health.HealChances -= healChancesDecrease;
-            stateMachine.PotionManager.UpdatePotion(stateMachine.Health.HealChances);
+            stateMachine.Health.currentHealChances -= healChancesDecrease;
         }       
     }
 
