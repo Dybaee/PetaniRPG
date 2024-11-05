@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class PlayerHealState : PlayerBaseState
 {
@@ -12,8 +12,12 @@ public class PlayerHealState : PlayerBaseState
 
     private float duration = 1f;
     private int healChancesDecrease = 1;
+    
+
+
     public PlayerHealState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
+        
     }
 
     public override void EnterState()
@@ -36,6 +40,7 @@ public class PlayerHealState : PlayerBaseState
             stateMachine.PotionManager.UpdatePotion(stateMachine.Health.HealChances);
         }       
     }
+
 
     public override void UpdateState(float deltaTime)
     {

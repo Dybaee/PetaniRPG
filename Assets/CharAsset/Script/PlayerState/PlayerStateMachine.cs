@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PlayerStateMachine : StateMachine, IDataPersistence
 {
@@ -28,6 +29,7 @@ public class PlayerStateMachine : StateMachine, IDataPersistence
     [field: SerializeField] public float RotationSmoothValue { get; private set; }
 
     [SerializeField] private UnityEvent onPlayerDead;
+    
     public Transform MainCamTransform { get; private set; }
     // First state when the game is on
     private void Start()
@@ -59,6 +61,7 @@ public class PlayerStateMachine : StateMachine, IDataPersistence
         SwitchState(new PlayerDeadState(this));
     }
 
+
     public void LoadData(GameData data)
     {
         if (data != null)
@@ -82,4 +85,5 @@ public class PlayerStateMachine : StateMachine, IDataPersistence
             data.playerPosition = this.transform.position;
         }
     }
+
 }
