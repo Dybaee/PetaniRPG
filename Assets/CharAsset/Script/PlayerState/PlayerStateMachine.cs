@@ -17,7 +17,9 @@ public class PlayerStateMachine : StateMachine, IDataPersistence
     [field: SerializeField] public AttackDamage AttackDamageScriptR { get; private set; }
     [field: SerializeField] public AttackData[] AttackData { get; private set; }
     [field: SerializeField] public AudioClip[] AudioClips { get; private set; }
-    
+
+    [field: SerializeField] public PotionManager PotionManager { get; private set; }
+
     //[field: SerializeField] public DiedPopup DiedPopup { get; private set; }
 
     [field: SerializeField] public int HealValue { get; private set; }

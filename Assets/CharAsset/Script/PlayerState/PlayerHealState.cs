@@ -33,6 +33,7 @@ public class PlayerHealState : PlayerBaseState
             stateMachine.Animator.CrossFadeInFixedTime(HealHash, CrossFadeDuration);           
             stateMachine.Health.HealSystem(stateMachine.HealValue);
             stateMachine.Health.HealChances -= healChancesDecrease;
+            stateMachine.PotionManager.UpdatePotion(stateMachine.Health.HealChances);
         }       
     }
 
