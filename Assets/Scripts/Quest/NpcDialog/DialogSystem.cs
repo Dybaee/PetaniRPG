@@ -99,6 +99,13 @@ public class DialogSystem : MonoBehaviour
             //gameObject.SetActive(false);
             isActive = false;
             onDialogueDone?.Invoke();
+
+            Invoke("DialogueOff", 3f);
         }
+    }
+
+    private void DialogueOff()
+    {
+        this.gameObject.SetActive(false);
     }
 }

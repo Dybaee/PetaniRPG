@@ -4,25 +4,35 @@ using UnityEngine;
 
 public class PositionSavingPlayer : MonoBehaviour
 {
-    private Transform Player;
+    private GameObject Player;
     private void Awake() 
     {
-        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();    
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void SavePos()
     {
-        PlayerPrefs.SetFloat("xPos", Player.position.x);
-        PlayerPrefs.SetFloat("yPos", Player.position.y);
-        PlayerPrefs.SetFloat("zPos", Player.position.z);
+        Vector3 playerPosition = Player.transform.position;
+        PlayerPrefs.SetFloat("xPos", playerPosition.x);
+        PlayerPrefs.SetFloat("yPos", playerPosition.y);
+        PlayerPrefs.SetFloat("zPos", playerPosition.z);
+        PlayerPrefs.Save();
+
+        Debug.Log("Player position saved: " + playerPosition);
     }
 
     public void LoadPos()
     {
-        float playerX = PlayerPrefs.GetFloat("xPos");
-        float playerY = PlayerPrefs.GetFloat("yPos");
-        float playerZ = PlayerPrefs.GetFloat("zPos");
+       Vector3 savedPosition = new Vector3(
+            PlayerPrefs.GetFloat("xPos", Player.transform.position.x),
+            PlayerPrefs.GetFloat("yPos", Player.transform.position.y),
+            PlayerPrefs.GetFloat("zPos", Player.transform.position.z)
+        );
 
-        Player.position = new Vector3(playerX, playerY, playerZ); 
+        // Move the player to the saved position
+        Player.transform.position = savedPosition;
+
+        // Optionally, reset any other player states, like health
+        Debug.Log("Player respawned at: " + savedPosition);
     }
 }

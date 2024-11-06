@@ -5,7 +5,6 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     private int currentIndex = -1;
-    private bool isReplaceable = false;
     public List<GameObject> currentTexts;
 
 
@@ -43,6 +42,10 @@ public class QuestManager : MonoBehaviour
     [SerializeField] private Animator Quest6Anim;
     [SerializeField] private Animator Ceklis6Anim;
     [SerializeField] private List<GameObject> TextQuest6;
+    [SerializeField] private GameObject CutsceneEnd;
+
+    [Header("After Boss Quest")]
+    [SerializeField] private List<GameObject> TextQuest7;
 
     private void Start() 
     {
@@ -106,14 +109,16 @@ public class QuestManager : MonoBehaviour
     public void Quest6Start()
     {
         // Start Quest 6 here
-        ReplaceContents(TextQuest6, ref currentTexts);
-
         Quest5Anim.gameObject.SetActive(false);
         Quest6Anim.gameObject.SetActive(true);
         FindSurvivorWall.SetActive(false);
         Quest6Anim.SetTrigger("Popup");
         Debug.Log("QUEST : Kill the enemy boss");
+    }
 
+    public void Quest6Text()
+    {
+        ReplaceContents(TextQuest6, ref currentTexts);
         StartCoroutine(ActivateTextQuest());
     }
 
@@ -166,9 +171,13 @@ public class QuestManager : MonoBehaviour
 
     public void BossDied()
     {
+        ReplaceContents(TextQuest7, ref currentTexts);
+
         // Quest boss finished, go to main menu
         Ceklis6Anim.SetTrigger("Ceklist");
         Debug.Log("Boss is dead");
+
+        StartCoroutine(EndGame());
     }
 
     private IEnumerator Quest2Coroutine()
@@ -211,6 +220,18 @@ public class QuestManager : MonoBehaviour
         // Start Quest 4 here
         Quest4Anim.gameObject.SetActive(false);
         Quest5Start();
+        yield return null;
+    }
+
+    private IEnumerator EndGame()
+    {
+        // Quest 6 clear
+        StartCoroutine(ActivateTextQuest());
+
+        yield return new WaitForSeconds(8);
+
+        CutsceneEnd.SetActive(true);
+
         yield return null;
     }
 
