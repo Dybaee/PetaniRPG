@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
+    private int currentIndex = -1;
+    private bool isReplaceable = false;
+    public List<GameObject> currentTexts;
+
+
     [Header("Dummy Quest")]
     [SerializeField] private GameObject DummyTutorialWall;
     [SerializeField] private Animator Quest1Anim;
@@ -12,12 +17,14 @@ public class QuestManager : MonoBehaviour
     [Header("Sawah Battle Quest")]
     [SerializeField] private int AreaSawahEnemies = 3;
     [SerializeField] private GameObject AreaSawahWall;
+    [SerializeField] private List<GameObject> TextQuest2;
     [SerializeField] private Animator Quest2Anim;
     [SerializeField] private Animator Ceklis2Anim;
 
     [Header("Go to Village Quest")]
     [SerializeField] private Animator Quest3Anim;
     [SerializeField] private Animator Ceklis3Anim;
+    [SerializeField] private List<GameObject> TextQuest3;
 
     [Header("Desa Battle Quest")]
     [SerializeField] private int AreaDesaEnemies = 5;
@@ -38,6 +45,8 @@ public class QuestManager : MonoBehaviour
     {
         DummyTutorialWall.SetActive(true);
 
+        InsertContents(TextQuest2, ref currentTexts);
+
         //Quest 1 Here
         Quest1Anim.SetTrigger("Popup");
         Debug.Log("QUEST : Use left click to hit the dummy");
@@ -45,25 +54,31 @@ public class QuestManager : MonoBehaviour
 
     private void Update() 
     {
-        
+
     }
 
     public void Quest2Start()
     {
         // Start quest 2 here
         Quest1Anim.gameObject.SetActive(false);
+
         Quest2Anim.gameObject.SetActive(true);
         Quest2Anim.SetTrigger("Popup");
         Debug.Log("QUEST : Kill some enemy dogs");
+
+        StartCoroutine(ActivateTextQuest());
     }
 
     private void Quest3Start()
     {
         // Start quest 3 here
-        Quest2Anim.gameObject.SetActive(false);
+        ReplaceContents(TextQuest3, ref currentTexts);
+        
         Quest3Anim.gameObject.SetActive(true);
         Quest3Anim.SetTrigger("Popup");
         Debug.Log("QUEST : Go to your village");
+
+        StartCoroutine(ActivateTextQuest());
     }
 
     public void Quest4Start()
@@ -151,7 +166,7 @@ public class QuestManager : MonoBehaviour
         Ceklis2Anim.SetTrigger("Ceklist");
         yield return new WaitForSeconds(3);
 
-        Quest2Anim.gameObject.SetActive(true);
+        Quest2Anim.gameObject.SetActive(false);
         Quest3Start();
         yield return null;
     }
@@ -182,5 +197,61 @@ public class QuestManager : MonoBehaviour
         Quest4Anim.gameObject.SetActive(false);
         Quest5Start();
         yield return null;
+    }
+
+    void InsertContents(List<GameObject> source, ref List<GameObject> target)
+    {
+        // Ensure the target array is large enough
+        while (target.Count < source.Count)
+        {
+            target.Add(null);
+        }
+
+        for (int i = 0; i < source.Count; i++)
+        {
+            target[i] = source[i]; // Copy each element from source to target
+        }
+    }
+
+    void ReplaceContents(List<GameObject> replacement, ref List<GameObject> target)
+    {
+        // Ensure the target array is large enough
+        while (target.Count < replacement.Count)
+        {
+            target.Add(null);
+        }
+
+        for (int i = 0; i < replacement.Count; i++)
+        {
+            target[i] = replacement[i]; // Replace each element in target with the replacement
+        }
+    }
+
+    private IEnumerator ActivateTextQuest()
+    {
+        for (int i = 0; i < currentTexts.Count; i++)
+        {
+            // Deactivate the previous GameObject if one is active
+            if (currentIndex >= 0 && currentIndex < currentTexts.Count)
+            {
+                currentTexts[currentIndex].SetActive(false);
+            }
+
+            // Move to the next index
+            currentIndex++;
+
+            // Activate the current GameObject
+            currentTexts[currentIndex].SetActive(true);
+
+            // Wait for the specified interval before the next activation
+            yield return new WaitForSeconds(3f);
+        }
+
+        // Optionally, deactivate the last GameObject after the loop finishes
+        if (currentIndex >= 0 && currentIndex < currentTexts.Count)
+        {
+            currentTexts[currentIndex].SetActive(false);
+            currentIndex = -1;
+        }
     }
 }
