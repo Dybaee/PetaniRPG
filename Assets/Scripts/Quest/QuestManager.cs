@@ -31,15 +31,18 @@ public class QuestManager : MonoBehaviour
     [SerializeField] private GameObject AreaDesaWall;
     [SerializeField] private Animator Quest4Anim;
     [SerializeField] private Animator Ceklis4Anim;
+     [SerializeField] private List<GameObject> TextQuest4;
 
     [Header("Find survivor Quest")]
     [SerializeField] private GameObject FindSurvivorWall;
     [SerializeField] private Animator Quest5Anim;
     [SerializeField] private Animator Ceklis5Anim;
+    [SerializeField] private List<GameObject> TextQuest5;
 
     [Header("Bossfight Quest")]
     [SerializeField] private Animator Quest6Anim;
     [SerializeField] private Animator Ceklis6Anim;
+    [SerializeField] private List<GameObject> TextQuest6;
 
     private void Start() 
     {
@@ -83,25 +86,35 @@ public class QuestManager : MonoBehaviour
 
     public void Quest4Start()
     {
+        ReplaceContents(TextQuest4, ref currentTexts);
+
         StartCoroutine(Quest3Coroutine());
     }
     
     private void Quest5Start()
     {
         // Start Quest 5 here
+        ReplaceContents(TextQuest5, ref currentTexts);
+
         Quest5Anim.gameObject.SetActive(true);
         Quest5Anim.SetTrigger("Popup");
         Debug.Log("QUEST : Find any survivor");
+
+        StartCoroutine(ActivateTextQuest());
     }
 
     public void Quest6Start()
     {
         // Start Quest 6 here
+        ReplaceContents(TextQuest6, ref currentTexts);
+
         Quest5Anim.gameObject.SetActive(false);
         Quest6Anim.gameObject.SetActive(true);
         FindSurvivorWall.SetActive(false);
         Quest6Anim.SetTrigger("Popup");
         Debug.Log("QUEST : Kill the enemy boss");
+
+        StartCoroutine(ActivateTextQuest());
     }
 
     public void TutorialDummy()
@@ -182,6 +195,8 @@ public class QuestManager : MonoBehaviour
         Quest4Anim.gameObject.SetActive(true);
         Quest4Anim.SetTrigger("Popup");
         Debug.Log("QUEST : Eliminate the invaders");
+
+        StartCoroutine(ActivateTextQuest());
         yield return null;
     }
 
@@ -236,7 +251,7 @@ public class QuestManager : MonoBehaviour
             {
                 currentTexts[currentIndex].SetActive(false);
             }
-
+            
             // Move to the next index
             currentIndex++;
 

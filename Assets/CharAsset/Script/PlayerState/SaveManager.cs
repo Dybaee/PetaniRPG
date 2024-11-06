@@ -10,24 +10,24 @@ public class SaveManager : MonoBehaviour
         playerState.SaveData(ref data);
 
         string json = JsonUtility.ToJson(data);
-        PlayerPrefs.SetString("GameData", json);
-        PlayerPrefs.Save();
+        //PlayerSave.SetString("GameData", json);
+        //PlayerSave.Save();
         Debug.Log("Game Saved: " + json);
     }
 
 
     public static void LoadGame(PlayerStateMachine playerState)
     {
-        if (PlayerPrefs.HasKey("GameData"))
-        {
-            string json = PlayerPrefs.GetString("GameData");
-            GameData data = JsonUtility.FromJson<GameData>(json);
-            playerState.LoadData(data);
-            Debug.Log("Game Loaded: " + json);
-        }
-        else
-        {
-            Debug.Log("No saved game data found.");
-        }
+        // if (PlayerSave.HasKey("GameData"))
+        // {
+        //     string json = PlayerSave.GetString("GameData");
+        //     GameData data = JsonUtility.FromJson<GameData>(json);
+        //     playerState.LoadData(data);
+        //     Debug.Log("Game Loaded: " + json);
+        // }
+        // else
+        // {
+        //     Debug.Log("No saved game data found.");
+        // }
     }
 }

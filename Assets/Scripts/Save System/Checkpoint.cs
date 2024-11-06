@@ -21,7 +21,7 @@ public class Checkpoint : MonoBehaviour
             onEnterArea.Invoke();
             thisRenderer.material = MaterialOnEnter;
             
-            DataPersistenceManager.Instance.AutoSaveGame();
+            //DataPersistenceManager.Instance.AutoSaveGame();
         }
     }
 }

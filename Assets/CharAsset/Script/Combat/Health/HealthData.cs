@@ -76,7 +76,10 @@ public class HealthData : MonoBehaviour
     public void ResetHealth()
     {
         currentHealth = maxHealth;
+
         HealthUI.localScale = new Vector3(1f, 1f, 1f);
+        HealthUI.localPosition = new Vector3(0, 0, 0 );
+
         currentHealChances = HealChances;
 
         OnRespawn?.Invoke();
