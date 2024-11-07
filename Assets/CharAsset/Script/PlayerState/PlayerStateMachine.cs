@@ -27,7 +27,7 @@ public class PlayerStateMachine : StateMachine, IDataPersistence
     [SerializeField] private UnityEvent onPlayerHeal;
     [SerializeField] private UnityEvent onPlayerDead;
     [SerializeField] private UnityEvent onPlayerRespawn;
-    
+
     public Transform MainCamTransform { get; private set; }
     // First state when the game is on
     private void Start()

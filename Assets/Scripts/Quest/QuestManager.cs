@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
+    [SerializeField] private ObjectivesWaypoint targetTutorial;
     private int currentIndex = -1;
     public List<GameObject> currentTexts;
 
@@ -12,6 +13,11 @@ public class QuestManager : MonoBehaviour
     [SerializeField] private GameObject DummyTutorialWall;
     [SerializeField] private Animator Quest1Anim;
     [SerializeField] private Animator Ceklis1Anim;
+    public Transform replaceTarget2;
+    public Transform replaceTarget3;
+    public Transform replaceTarget4;
+    public Transform replaceTarget5;
+    public Transform replaceTarget6;
 
     [Header("Sawah Battle Quest")]
     [SerializeField] private int AreaSawahEnemies = 3;
@@ -98,10 +104,12 @@ public class QuestManager : MonoBehaviour
     {
         // Start Quest 5 here
         ReplaceContents(TextQuest5, ref currentTexts);
+        targetTutorial.target = replaceTarget5;
 
         Quest5Anim.gameObject.SetActive(true);
         Quest5Anim.SetTrigger("Popup");
         Debug.Log("QUEST : Find any survivor");
+
 
         StartCoroutine(ActivateTextQuest());
     }
@@ -113,6 +121,7 @@ public class QuestManager : MonoBehaviour
         Quest6Anim.gameObject.SetActive(true);
         FindSurvivorWall.SetActive(false);
         Quest6Anim.SetTrigger("Popup");
+        targetTutorial.target = replaceTarget6;
         Debug.Log("QUEST : Kill the enemy boss");
     }
 
@@ -127,7 +136,14 @@ public class QuestManager : MonoBehaviour
         // Quest 2 muncul, quest 1 ceklis
         Ceklis1Anim.SetTrigger("Ceklist");
         Debug.Log("Tutorial complete");
+        StartCoroutine(TutorialDummyDan());
+    }
+
+    IEnumerator TutorialDummyDan()
+    {
+        targetTutorial.target = replaceTarget2;
         DummyTutorialWall.SetActive(false);
+        yield return null;
     }
 
     public void EnemySawahDecrease()
@@ -187,6 +203,8 @@ public class QuestManager : MonoBehaviour
         Debug.Log("Area is Cleared");
         Ceklis2Anim.SetTrigger("Ceklist");
         yield return new WaitForSeconds(3);
+        targetTutorial.target = replaceTarget3;
+
 
         Quest2Anim.gameObject.SetActive(false);
         Quest3Start();
@@ -204,6 +222,7 @@ public class QuestManager : MonoBehaviour
         Quest4Anim.gameObject.SetActive(true);
         Quest4Anim.SetTrigger("Popup");
         Debug.Log("QUEST : Eliminate the invaders");
+        targetTutorial.target = replaceTarget4;
 
         StartCoroutine(ActivateTextQuest());
         yield return null;
@@ -216,6 +235,7 @@ public class QuestManager : MonoBehaviour
         AreaDesaWall.SetActive(false);
         Debug.Log("Area is Cleared");
         yield return new WaitForSeconds(3);
+        
 
         // Start Quest 4 here
         Quest4Anim.gameObject.SetActive(false);

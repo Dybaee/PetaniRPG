@@ -12,7 +12,6 @@ public class PlayerHealState : PlayerBaseState
 
     private float duration = 1f;
     private int healChancesDecrease = 1;
-    
 
 
     public PlayerHealState(PlayerStateMachine stateMachine) : base(stateMachine)
