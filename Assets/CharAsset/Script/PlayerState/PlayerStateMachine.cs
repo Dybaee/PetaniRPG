@@ -13,6 +13,7 @@ public class PlayerStateMachine : StateMachine, IDataPersistence
     [field: SerializeField] public InDialogue DialogueTriggerScript { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiverScript { get; private set; }
     [field: SerializeField] public HealthData Health { get; private set; }
+    [field: SerializeField] public EnemyPositionCheck EnemyPosition { get; private set; }
     [field: SerializeField] public AudioSource AudioSource { get; private set; }
     [field: SerializeField] public AttackDamage AttackDamageScriptL { get; private set; }
     [field: SerializeField] public AttackDamage AttackDamageScriptR { get; private set; }
@@ -42,6 +43,8 @@ public class PlayerStateMachine : StateMachine, IDataPersistence
         Health.OnDie += HandleDie;
         Health.OnHeal += HandleHeal;
         Health.OnRespawn += HandleRespawn;
+        EnemyPosition.OnEnemyEnterCollider += HandleEnemyEnterCollider;
+        EnemyPosition.OnEnemyExitCollider += HandleEnemyExitCollider;
     }
 
     private void OnDisable()
@@ -50,6 +53,18 @@ public class PlayerStateMachine : StateMachine, IDataPersistence
         Health.OnDie -= HandleDie;
         Health.OnHeal -= HandleHeal;
         Health.OnRespawn -= HandleRespawn;
+        EnemyPosition.OnEnemyEnterCollider -= HandleEnemyEnterCollider;
+        EnemyPosition.OnEnemyExitCollider -= HandleEnemyExitCollider;
+    }
+
+    private void HandleEnemyEnterCollider()
+    {
+        Health.SetCanDamageBlock(true);
+    }
+
+    private void HandleEnemyExitCollider()
+    {
+        Health.SetCanDamageBlock(false);
     }
 
     private void HandleTakeDamage()

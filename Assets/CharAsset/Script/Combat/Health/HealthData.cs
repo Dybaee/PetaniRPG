@@ -12,6 +12,7 @@ public class HealthData : MonoBehaviour
     public int HealChances;
     public int currentHealChances;
     public int damageAmount { get; private set; }
+    [field: SerializeField] public bool IsCanDamage {get; private set; } = false;
 
     private bool isHitBlocked;
     private float XScale;
@@ -39,12 +40,17 @@ public class HealthData : MonoBehaviour
         this.isHitBlocked = isHitBlocked;
     }
 
+    public void SetCanDamageBlock(bool isCanDamage)
+    {
+        this.IsCanDamage = isCanDamage;
+    }
+
     public void DealDamage(int damageAmount)
     {
         this.damageAmount = damageAmount;
         if(currentHealth <= 0) { return; }
 
-        if (isHitBlocked) { return; }
+        if(isHitBlocked && !IsCanDamage) { return; }
 
         currentHealth -= damageAmount;
 

@@ -25,7 +25,7 @@ public class PlayerHealState : PlayerBaseState
         {
             Debug.Log("Your health is full!");
         }
-        else if (stateMachine.Health.HealChances <= 0)
+        else if (stateMachine.Health.currentHealChances <= 0)
         {
             Debug.Log("You're no longer able to heal!");
         }

@@ -7,6 +7,9 @@ TagManager:
   - Checkpoint
   - HealthUI
   - NPC
+  - Enemy
+  - WolfWaypoint
+  - KrocoWaypoint
   layers:
   - Default
   - TransparentFX
