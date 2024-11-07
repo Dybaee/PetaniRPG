@@ -7,7 +7,6 @@ public class PositionSavingPlayer : MonoBehaviour
     private GameObject Player;
     private void Awake() 
     {
-
         Player = GameObject.FindGameObjectWithTag("Player");
     }
 
