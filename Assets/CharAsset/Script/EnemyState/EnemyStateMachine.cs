@@ -24,11 +24,10 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public float AttackRange { get; private set; }
     [field: SerializeField] public int AttackDamage { get; private set; }
     [field: SerializeField] public int AttackKnockback { get; private set; }
-    [field: SerializeField] public List<Transform> wayPoints { get; private set; }
 
     [SerializeField] private UnityEvent onEnemyKilled;
 
-    private WaypointList EnemyWaypoint;
+    public RandomCheckpoint centerPoint { get; private set; }
     public HealthData Player { get; private set; }
 
     private void Start()
@@ -47,17 +46,7 @@ public class EnemyStateMachine : StateMachine
         }
         else
         {
-            EnemyWaypoint = GameObject.FindGameObjectWithTag(EnemyWaypointName).GetComponent<WaypointList>();
-            
-            while (wayPoints.Count < EnemyWaypoint.wayPointsSet.Count)
-            {
-                wayPoints.Add(null);
-            }
-
-            for (int i = 0; i < EnemyWaypoint.wayPointsSet.Count; i++)
-            {
-                wayPoints[i] = EnemyWaypoint.wayPointsSet[i]; // Replace each element in target with the replacement
-            }
+            centerPoint = GameObject.FindGameObjectWithTag(EnemyWaypointName).GetComponent<RandomCheckpoint>();
 
             SwitchState(new EnemyPatrolState(this));
         }

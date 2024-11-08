@@ -21,7 +21,7 @@ public class EnemyPatrolState : EnemyBaseState
     {
         enemystateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, CrossFadeDuration);
 
-        currentPoint = enemystateMachine.wayPoints[Random.Range(0, enemystateMachine.wayPoints.Count)].position;
+        currentPoint = enemystateMachine.centerPoint.GetRandomWaypoint(enemystateMachine.centerPoint.gameObject.transform.position, enemystateMachine.centerPoint.radius);
     }
 
     public override void UpdateState(float deltaTime)
