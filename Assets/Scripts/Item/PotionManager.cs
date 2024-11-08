@@ -9,6 +9,7 @@ public class PotionManager : MonoBehaviour
     public TextMeshProUGUI potionCountText; 
     [SerializeField] private float HealCount = 5f;
     private float currentHealCount;
+    [SerializeField] private DelayedCD delayAnim;
     
     private void Start() 
     {
