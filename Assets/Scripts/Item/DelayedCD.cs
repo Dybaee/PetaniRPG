@@ -5,7 +5,6 @@ using UnityEngine;
 public class DelayedCD : MonoBehaviour
 {
     private Animator anim;
-    public PotionManager manager;
 
     // Start is called before the first frame update
     void Start()

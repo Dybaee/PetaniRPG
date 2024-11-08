@@ -6,7 +6,7 @@ public class DestroyMarkerOnLastTrigger : MonoBehaviour
 {
     public GameObject markerObject;
 
-    private void OnTriggerEnter(Collider other)
+   public void DestroyedMarker()
     {
         Destroy(markerObject);
     }
