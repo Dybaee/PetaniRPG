@@ -27,13 +27,15 @@ public class EnemyStateMachine : StateMachine
 
     [SerializeField] private UnityEvent onEnemyKilled;
 
-    public RandomCheckpoint centerPoint { get; private set; }
+    [field: SerializeField] public RandomCheckpoint centerPoint { get; private set; }
     public HealthData Player { get; private set; }
 
     private void Start()
     {
         //menemukan player
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthData>();
+
+        
 
         //agar ai tidak menggerakkan enemy(agar bisa modify lebih jauh) 
         Agent.updatePosition = false;
@@ -47,7 +49,6 @@ public class EnemyStateMachine : StateMachine
         else
         {
             centerPoint = GameObject.FindGameObjectWithTag(EnemyWaypointName).GetComponent<RandomCheckpoint>();
-
             SwitchState(new EnemyPatrolState(this));
         }
     }

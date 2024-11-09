@@ -27,8 +27,9 @@ public class AttackDamageEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other == ThisGameobjectCollider && other.gameObject.tag == "Enemy") { return; }
+        if(other == ThisGameobjectCollider) { return; }
         if(other == ThisComponentCollider) { return; }
+        if(other.gameObject.tag == "Enemy") { return; }
 
         if (alreadyCollidedWith.Contains(other)) { return; }
 

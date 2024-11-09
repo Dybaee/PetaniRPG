@@ -35,6 +35,15 @@ public class HealthData : MonoBehaviour
         currentHealChances = HealChances;
     }
 
+    private void FixedUpdate() 
+    {
+        // if(currentHealth == maxHealth)
+        // {
+        //     HealthUI.localScale = new Vector3(1f, 1f, 1f);
+        //     HealthUI.localPosition = new Vector3(0, 0, 0 );
+        // }
+    }
+
     public void SetInvulnerableBlock(bool isHitBlocked)
     {
         this.isHitBlocked = isHitBlocked;
