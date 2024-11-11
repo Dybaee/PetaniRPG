@@ -22,13 +22,14 @@ public class MainMenu : MonoBehaviour
 
     public void OnNewGameClicked()
     {
-        DataPersistenceManager.Instance.NewGame();
+        //DataPersistenceManager.Instance.NewGame();
         SceneManager.LoadSceneAsync("Gameplay");
+        PlayerPrefs.DeleteAll();
     }
 
     public void OnLoadGameClicked()
     {
-        DataPersistenceManager.Instance.LoadGame();
+        //DataPersistenceManager.Instance.LoadGame();
         SceneManager.LoadSceneAsync("Gameplay");
     }
 

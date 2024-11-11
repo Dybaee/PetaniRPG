@@ -16,7 +16,7 @@ public class PlayerAttackingState : PlayerBaseState
 
     public override void EnterState()
     {
-        stateMachine.AudioSource.PlayOneShot(stateMachine.AudioClips[2]);
+        stateMachine.SFXAudio.PlayOneShot(stateMachine.SoundEffect[2]);
         stateMachine.AttackDamageScriptL.SetDamage(attack.Damage, attack.Knockback);
         stateMachine.AttackDamageScriptR?.SetDamage(attack.Damage, attack.Knockback);
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);

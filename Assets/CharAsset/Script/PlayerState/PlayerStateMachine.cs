@@ -14,11 +14,13 @@ public class PlayerStateMachine : StateMachine, IDataPersistence
     [field: SerializeField] public ForceReceiver ForceReceiverScript { get; private set; }
     [field: SerializeField] public HealthData Health { get; private set; }
     [field: SerializeField] public EnemyPositionCheck EnemyPosition { get; private set; }
-    [field: SerializeField] public AudioSource AudioSource { get; private set; }
+    [field: SerializeField] public AudioSource SFXAudio { get; private set; }
+    [field: SerializeField] public AudioSource BGMAudio { get; private set; }
     [field: SerializeField] public AttackDamage AttackDamageScriptL { get; private set; }
     [field: SerializeField] public AttackDamage AttackDamageScriptR { get; private set; }
     [field: SerializeField] public AttackData[] AttackData { get; private set; }
-    [field: SerializeField] public AudioClip[] AudioClips { get; private set; }
+    [field: SerializeField] public AudioClip[] SoundEffect { get; private set; }
+    [field: SerializeField] public AudioClip[] BackgroundMusic { get; private set; }
     [field: SerializeField] public int HealValue { get; private set; }
     [field: SerializeField] public float RespawnTime { get; private set; }
     [field: SerializeField] public float FreelookRunSpeed { get; private set; }

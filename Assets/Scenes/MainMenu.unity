@@ -12832,6 +12832,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SaveManager
       objectReference: {fileID: 0}
+    - target: {fileID: 592769403419320547, guid: dce9a4481f03d3e4ba580c23af32ce22,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1969383234589641839, guid: dce9a4481f03d3e4ba580c23af32ce22,
         type: 3}
       propertyPath: initializeDataIfNull

@@ -18,7 +18,7 @@ public class PlayerImpactState : PlayerBaseState
     {
         stateMachine.AttackDamageScriptL.gameObject.SetActive(false);
         stateMachine.AttackDamageScriptR?.gameObject.SetActive(false);
-        stateMachine.AudioSource.PlayOneShot(stateMachine.AudioClips[1]);
+        stateMachine.SFXAudio.PlayOneShot(stateMachine.SoundEffect[1]);
         stateMachine.Health.UIHealthDecreaseUpdate();
         stateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeDuration);
     }
