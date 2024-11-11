@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public GameObject settingObj1;
     public GameObject settingObj2;
     public GameObject backTO;
+    public GameObject decorObj;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class UIManager : MonoBehaviour
         settingObj1.SetActive(false);
         settingObj2.SetActive(false);
         backTO.SetActive(true);
+        decorObj.SetActive(true);
     }
 
     void Update()
