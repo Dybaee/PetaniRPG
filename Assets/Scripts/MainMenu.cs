@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,6 +12,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button loadGameButton;
     [SerializeField] private Button loadGameHover;
 
+    public Animator anim;
+    public GameObject loadObj;
+
+    private void Start()
+    {
+        loadObj.SetActive(false);
+    }
 
     private void Awake()
     {
@@ -23,8 +31,16 @@ public class MainMenu : MonoBehaviour
     public void OnNewGameClicked()
     {
         //DataPersistenceManager.Instance.NewGame();
-        SceneManager.LoadSceneAsync("Gameplay");
+        //SceneManager.LoadSceneAsync("Gameplay");
+        StartCoroutine(NewGame());
         PlayerPrefs.DeleteAll();
+    }
+
+    IEnumerator NewGame()
+    {
+        anim.SetTrigger("Start");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadSceneAsync("Gameplay");
     }
 
     public void OnLoadGameClicked()
