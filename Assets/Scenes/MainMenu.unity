@@ -203,7 +203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &50213104
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14188,7 +14188,6 @@ MonoBehaviour:
   loadGameButton: {fileID: 1875937379}
   loadGameHover: {fileID: 1057967939}
   anim: {fileID: 193536365}
-  loadObj: {fileID: 0}
 --- !u!1 &1616993085
 GameObject:
   m_ObjectHideFlags: 0
