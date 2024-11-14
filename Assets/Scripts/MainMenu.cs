@@ -13,11 +13,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button loadGameHover;
 
     public Animator anim;
-    public GameObject loadObj;
 
     private void Start()
     {
-        loadObj.SetActive(false);
+        
     }
 
     private void Awake()
@@ -39,7 +38,7 @@ public class MainMenu : MonoBehaviour
     IEnumerator NewGame()
     {
         anim.SetTrigger("Start");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         SceneManager.LoadSceneAsync("Gameplay");
     }
 
