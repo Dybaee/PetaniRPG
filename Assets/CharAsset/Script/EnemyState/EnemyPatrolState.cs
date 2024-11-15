@@ -26,28 +26,36 @@ public class EnemyPatrolState : EnemyBaseState
 
     public override void UpdateState(float deltaTime)
     {
-        PatrollingMove(deltaTime);
-        FacePoint();
-
-        if (IsInChaseRange())
+        if (!IsInChaseRange())
+        {
+            if(enemystateMachine.Agent.remainingDistance <= enemystateMachine.Agent.stoppingDistance)
+            {
+                enemystateMachine.SwitchState(new EnemyPatrolState(enemystateMachine));
+            }
+        }
+        else
         {
             //Transition to Chase State
             enemystateMachine.SwitchState(new EnemyChaseState(enemystateMachine));
-
             return;
-        }
+        }    
 
-        if(enemystateMachine.Agent.remainingDistance <= enemystateMachine.Agent.stoppingDistance)
-        {
-            enemystateMachine.SwitchState(new EnemyPatrolState(enemystateMachine));
-        }
+        PatrollingMove(deltaTime);
+        FacePoint();
 
         enemystateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDampTime, deltaTime);
     }
 
     public override void ExitState()
     {
-        
+        if (enemystateMachine.Agent.isOnNavMesh)
+        {
+            //mereset path setelah diluar range(tidak mengikuti player)
+            enemystateMachine.Agent.ResetPath();
+
+            //reset velocity
+            enemystateMachine.Agent.velocity = Vector3.zero;
+        }
     }
 
     private void PatrollingMove(float deltaTime)

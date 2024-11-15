@@ -26,9 +26,7 @@ public class PlayerDeadState : PlayerBaseState
         stateMachine.Health.UIHealthZero();
         //stateMachine.StartCoroutine(stateMachine.DiedPopup.AnimPopup());
 
-        stateMachine.AttackDamageScriptL.gameObject.SetActive(false);
-        stateMachine.AttackDamageScriptR?.gameObject.SetActive(false);
-
+        stateMachine.AttackDamageScript.gameObject.SetActive(false);
     }
 
     public override void UpdateState(float deltaTime)

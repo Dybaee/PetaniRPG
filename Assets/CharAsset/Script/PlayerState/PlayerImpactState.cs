@@ -16,8 +16,7 @@ public class PlayerImpactState : PlayerBaseState
 
     public override void EnterState()
     {
-        stateMachine.AttackDamageScriptL.gameObject.SetActive(false);
-        stateMachine.AttackDamageScriptR?.gameObject.SetActive(false);
+        stateMachine.AttackDamageScript.gameObject.SetActive(false);
         stateMachine.SFXAudio.PlayOneShot(stateMachine.SoundEffect[1]);
         stateMachine.Health.UIHealthDecreaseUpdate();
         stateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeDuration);

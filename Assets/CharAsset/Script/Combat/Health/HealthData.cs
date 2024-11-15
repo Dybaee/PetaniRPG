@@ -12,8 +12,8 @@ public class HealthData : MonoBehaviour
     public int HealChances;
     public int currentHealChances;
     public int damageAmount { get; private set; }
-    [field: SerializeField] public bool IsCanDamage {get; private set; } = false;
-
+    
+    private bool IsCanDamage = false;
     private bool isHitBlocked;
     private float XScale;
     private float healValue;
