@@ -6810,6 +6810,7 @@ GameObject:
   - component: {fileID: 672808964910165653}
   - component: {fileID: 5841551411140545616}
   - component: {fileID: 4988343976343366110}
+  - component: {fileID: 3647906406563745395}
   - component: {fileID: 2039334654914410373}
   - component: {fileID: 4628640615384286429}
   - component: {fileID: 694363179635028116}
@@ -6912,6 +6913,102 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!82 &3647906406563745395
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5401778434245215315}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &2039334654914410373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6936,12 +7033,14 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 3600754935972708999}
   <quest1>k__BackingField: {fileID: 0}
   <HealthUI>k__BackingField: {fileID: 694363179635028116}
+  <SFXAudio>k__BackingField: {fileID: 3647906406563745395}
+  <SoundEffect>k__BackingField:
+  - {fileID: 8300000, guid: 9a2ae6d37922ed147b40371c3e4e7ae8, type: 3}
   <DivideAmount>k__BackingField: 270
-  <MovementSpeed>k__BackingField: 10
+  <MovementSpeed>k__BackingField: 5
   <AttackRange>k__BackingField: 1.5
   <AttackDamage>k__BackingField: 20
   <AttackKnockback>k__BackingField: 10
-  <wayPoints>k__BackingField: []
   onEnemyKilled:
     m_PersistentCalls:
       m_Calls:
@@ -6957,6 +7056,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  <centerPoint>k__BackingField: {fileID: 0}
 --- !u!114 &4628640615384286429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6973,7 +7073,6 @@ MonoBehaviour:
   <currentHealth>k__BackingField: 0
   HealChances: 0
   currentHealChances: 0
-  <IsCanDamage>k__BackingField: 0
 --- !u!114 &694363179635028116
 MonoBehaviour:
   m_ObjectHideFlags: 0

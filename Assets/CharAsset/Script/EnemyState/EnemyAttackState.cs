@@ -16,6 +16,8 @@ public class EnemyAttackState : EnemyBaseState
         FacePlayer();
         enemystateMachine.Weapon.SetDamage(enemystateMachine.AttackDamage, enemystateMachine.AttackKnockback);
         enemystateMachine.Animator.CrossFadeInFixedTime(AttackHash, TransitionDuration);
+
+        enemystateMachine.SFXAudio.PlayOneShot(enemystateMachine.SoundEffect[0]);
     }
 
     public override void UpdateState(float deltaTime)

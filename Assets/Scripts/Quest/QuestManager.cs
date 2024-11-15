@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
+    [Header("Properties")]
     [SerializeField] private ObjectivesWaypoint targetTutorial;
+    [SerializeField] private BackgroundMusicChanger MusicChanger;
     private int currentIndex = -1;
     public List<GameObject> currentTexts;
 
@@ -78,6 +80,8 @@ public class QuestManager : MonoBehaviour
         Quest2Anim.SetTrigger("Popup");
         Debug.Log("QUEST : Kill some enemy dogs");
 
+        MusicChanger.ChosenMusic(1);
+
         StartCoroutine(ActivateTextQuest());
     }
 
@@ -96,6 +100,8 @@ public class QuestManager : MonoBehaviour
     public void Quest4Start()
     {
         ReplaceContents(TextQuest4, ref currentTexts);
+
+        MusicChanger.ChosenMusic(2);
 
         StartCoroutine(Quest3Coroutine());
     }
@@ -123,6 +129,8 @@ public class QuestManager : MonoBehaviour
         Quest6Anim.SetTrigger("Popup");
         targetTutorial.target = replaceTarget6;
         Debug.Log("QUEST : Kill the enemy boss");
+
+        MusicChanger.ChosenMusic(3);
     }
 
     public void Quest6Text()
@@ -192,6 +200,7 @@ public class QuestManager : MonoBehaviour
         // Quest boss finished, go to main menu
         Ceklis6Anim.SetTrigger("Ceklist");
         Debug.Log("Boss is dead");
+        MusicChanger.ChosenMusic(4);
 
         StartCoroutine(EndGame());
     }

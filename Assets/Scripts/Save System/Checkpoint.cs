@@ -19,7 +19,6 @@ public class Checkpoint : MonoBehaviour
         if (other.gameObject.CompareTag("Player")) 
         {
             onEnterArea.Invoke();
-            thisRenderer.material = MaterialOnEnter;
         }
     }
 }

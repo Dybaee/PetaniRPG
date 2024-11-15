@@ -19,6 +19,8 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public Target Target { get; private set; }
     [field: SerializeField] public Quest1Ceklist quest1 { get; private set; }
     [field: SerializeField] public EnemyHealthUI HealthUI { get; private set; }
+    [field: SerializeField] public AudioSource SFXAudio { get; private set; }
+    [field: SerializeField] public AudioClip[] SoundEffect { get; private set; }
     [field: SerializeField] public float DivideAmount { get; private set; }
     [field: SerializeField] public float MovementSpeed { get; private set; }
     [field: SerializeField] public float AttackRange { get; private set; }

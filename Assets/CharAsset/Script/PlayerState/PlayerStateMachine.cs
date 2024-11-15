@@ -16,13 +16,11 @@ public class PlayerStateMachine : StateMachine, IDataPersistence
     [field: SerializeField] public HealthData Health { get; private set; }
     [field: SerializeField] public EnemyPositionCheck EnemyPosition { get; private set; }
     [field: SerializeField] public AudioSource SFXAudio { get; private set; }
-    [field: SerializeField] public AudioSource BGMAudio { get; private set; }
     [field: SerializeField] public AttackDamage AttackDamageScript { get; private set; }
 
     [field: Header("Array Data")]
     [field: SerializeField] public AttackData[] AttackData { get; private set; }
     [field: SerializeField] public AudioClip[] SoundEffect { get; private set; }
-    [field: SerializeField] public AudioClip[] BackgroundMusic { get; private set; }
 
     [field: Header("Values Settings")]
     [field: SerializeField] public int HealValue { get; private set; }
