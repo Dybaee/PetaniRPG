@@ -20,8 +20,6 @@ public class PlayerFreeLookState : PlayerBaseState
         stateMachine.InputReader.InteractEvent += OnInteract;
         stateMachine.Animator.CrossFadeInFixedTime(FreeLookBlendTreeHash, CrossFadeDuration);
         
-        stateMachine.SFXAudio.clip = stateMachine.SoundEffect[3];
-        stateMachine.SFXAudio.Play();
     }
 
     public override void UpdateState(float deltaTime)
