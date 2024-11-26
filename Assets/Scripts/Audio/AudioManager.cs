@@ -9,7 +9,6 @@ public class AudioManager : MonoBehaviour
     [Header("----- Audio Source -----")]
     [SerializeField] AudioSource _bgmSound;
     [SerializeField] AudioSource _sfxSound;
-    private AudioSource _playerSfxSound;
 
     [Header("----- Audio Clip -----")]
     [SerializeField] AudioClip _sfxClip;
@@ -22,11 +21,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] Slider bgmSlider;
     [SerializeField] Slider sfxSlider;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        _playerSfxSound = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
-
+        _bgmSound.clip = _bgmClip;
+        _bgmSound.Play();
         if (!PlayerPrefs.HasKey("bgmVolume"))
         {
             PlayerPrefs.SetFloat("bgmVolume", 1);
@@ -69,12 +69,10 @@ public class AudioManager : MonoBehaviour
         if (volume <= 0)
         {
             _sfxSound.volume = 0;
-            _playerSfxSound.volume = 0;
         }
         else
         {
             _sfxSound.volume = volume;
-            _playerSfxSound.volume = volume;
             _mixer.SetFloat("_sfx", Mathf.Log10(volume) * 20);
         }
 
