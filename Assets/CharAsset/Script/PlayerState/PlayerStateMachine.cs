@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class PlayerStateMachine : StateMachine, IDataPersistence
+public class PlayerStateMachine : StateMachine //IDataPersistence
 {
     [field: Header("Properties for Components")]
     [field: SerializeField] public InputReader InputReader { get; private set; }
@@ -93,28 +93,28 @@ public class PlayerStateMachine : StateMachine, IDataPersistence
         onPlayerRespawn?.Invoke();
     }
 
-    public void LoadData(GameData data)
-    {
-        if (data != null)
-        {
-            StartCoroutine(PlacePlayerAfterSceneLoad(data.playerPosition));
-        }
-    }
+    // public void LoadData(GameData data)
+    // {
+    //     if (data != null)
+    //     {
+    //         StartCoroutine(PlacePlayerAfterSceneLoad(data.playerPosition));
+    //     }
+    // }
 
-    private IEnumerator PlacePlayerAfterSceneLoad(Vector3 savedPosition)
-    {
-        // Dikasih delay gegara terlalu cepet load scene
-        yield return new WaitForSeconds(0.3f);
+    // private IEnumerator PlacePlayerAfterSceneLoad(Vector3 savedPosition)
+    // {
+    //     // Dikasih delay gegara terlalu cepet load scene
+    //     yield return new WaitForSeconds(0.3f);
 
-        this.transform.position = savedPosition;
-    }
+    //     this.transform.position = savedPosition;
+    // }
 
-    public void SaveData(ref GameData data)
-    {
-        if (data != null) 
-        {
-            data.playerPosition = this.transform.position;
-        }
-    }
+    // public void SaveData(ref GameData data)
+    // {
+    //     if (data != null) 
+    //     {
+    //         data.playerPosition = this.transform.position;
+    //     }
+    // }
 
 }
