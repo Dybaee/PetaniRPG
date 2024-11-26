@@ -21,10 +21,10 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        if (!DataPersistenceManager.Instance.HasGameData())
-        {
-            loadGameButton.interactable = false;
-        }
+        // if (!DataPersistenceManager.Instance.HasGameData())
+        // {
+        //     loadGameButton.interactable = false;
+        // }
     }
 
     public void OnNewGameClicked()

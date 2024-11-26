@@ -7,7 +7,7 @@ public class SaveManager : MonoBehaviour
     public static void SaveGame(PlayerStateMachine playerState)
     {
         GameData data = new GameData();
-        playerState.SaveData(ref data);
+        // playerState.SaveData(ref data);
 
         string json = JsonUtility.ToJson(data);
         //PlayerSave.SetString("GameData", json);

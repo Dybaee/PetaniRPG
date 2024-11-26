@@ -35,4 +35,9 @@ public class PositionSavingPlayer : MonoBehaviour
         // Optionally, reset any other player states, like health
         Debug.Log("Player respawned at: " + savedPosition);
     }
+
+    public void DeletePos()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }
