@@ -14957,10 +14957,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 176983075}
     m_Modifications:
+    - target: {fileID: 603549247093305993, guid: 277d7ff30d8ac47448fdef0e8c90bc2c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1193090628551499680, guid: 277d7ff30d8ac47448fdef0e8c90bc2c,
         type: 3}
       propertyPath: m_Name
       value: Fire_Vfx (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193090628551499680, guid: 277d7ff30d8ac47448fdef0e8c90bc2c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1193090628551499680, guid: 277d7ff30d8ac47448fdef0e8c90bc2c,
         type: 3}
@@ -15777,10 +15787,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 176983075}
     m_Modifications:
+    - target: {fileID: 603549247093305993, guid: 277d7ff30d8ac47448fdef0e8c90bc2c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1193090628551499680, guid: 277d7ff30d8ac47448fdef0e8c90bc2c,
         type: 3}
       propertyPath: m_Name
       value: Fire_Vfx (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193090628551499680, guid: 277d7ff30d8ac47448fdef0e8c90bc2c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1193090628551499680, guid: 277d7ff30d8ac47448fdef0e8c90bc2c,
         type: 3}
