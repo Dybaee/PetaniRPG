@@ -34,25 +34,13 @@ public class EnemyStateMachine : StateMachine
 
     private void Start()
     {
+        SwitchState(new EnemyIdleState(this));
         //menemukan player
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthData>();
-
         
-
         //agar ai tidak menggerakkan enemy(agar bisa modify lebih jauh) 
         Agent.updatePosition = false;
         Agent.updateRotation = false;
-
-
-        if(EnemyStand)
-        {
-            SwitchState(new EnemyIdleState(this));
-        }
-        else
-        {
-            centerPoint = GameObject.FindGameObjectWithTag(EnemyWaypointName).GetComponent<RandomCheckpoint>();
-            SwitchState(new EnemyPatrolState(this));
-        }
     }
 
     private void OnEnable()

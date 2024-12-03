@@ -68,6 +68,7 @@ public class EnemyChaseState : EnemyBaseState
         }
 
         //char controller dan navmesh agent bisa sync(bergerak di kecepatan sama)
+        enemystateMachine.Agent.nextPosition = enemystateMachine.transform.position;
         enemystateMachine.Agent.velocity = enemystateMachine.Controller.velocity;
     }
 
