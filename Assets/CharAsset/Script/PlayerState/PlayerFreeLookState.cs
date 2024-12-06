@@ -88,6 +88,7 @@ public class PlayerFreeLookState : PlayerBaseState
 
     private void HealEvent()
     {
+        if (stateMachine.Health.currentHealth == 100 || stateMachine.Health.currentHealChances <= 0) {return; }
         stateMachine.SwitchState(new PlayerHealState(stateMachine));
     }
 
